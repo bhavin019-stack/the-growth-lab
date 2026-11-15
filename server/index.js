@@ -15,7 +15,8 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const UPLOADS_DIR = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.LAMBDA_TASK_ROOT);
+const UPLOADS_DIR = isServerless ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 
 try {
   if (!fs.existsSync(UPLOADS_DIR)) {
@@ -614,7 +615,7 @@ if (fs.existsSync(CLIENT_DIST)) {
   });
 }
 
-if (!process.env.VERCEL) {
+if (!isServerless) {
   app.listen(PORT, () => {
     console.log(`The Growth Lab Server running on http://localhost:${PORT}`);
     // Perform initial scan

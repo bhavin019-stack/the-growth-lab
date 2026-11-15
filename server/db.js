@@ -5,8 +5,9 @@ import { extractDocumentText, computeFileHash } from './services/documentExtract
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.LAMBDA_TASK_ROOT);
 const SEED_DB_FILE = path.join(__dirname, 'data', 'db.json');
-const DATA_DIR = process.env.VERCEL ? '/tmp/growth-lab-data' : path.join(__dirname, 'data');
+const DATA_DIR = isServerless ? '/tmp/growth-lab-data' : path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'db.json');
 const WORKSPACE_DIR = path.resolve(__dirname, '..');
 
