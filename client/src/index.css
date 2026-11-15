@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-canvas text-charcoal-900 font-sans;
+    background-color: #FAF8F5;
+  }
+
+  /* Custom scrollbar for modern studio feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D3CDC0;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B6AFA2;
+  }
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}

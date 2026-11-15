@@ -1,0 +1,16 @@
+{
+  "name": "the-growth-lab",
+  "version": "1.0.0",
+  "description": "Personal learning, skill development, and academic management platform — build along with it",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "test": "node test_app.js"
+  },
+  "keywords": ["learning", "growth", "mba", "operations", "communication", "product-management"],
+  "author": "Antigravity & Growth Lab",
+  "license": "ISC"
+}
