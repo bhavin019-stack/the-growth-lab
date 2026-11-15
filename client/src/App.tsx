@@ -11,9 +11,11 @@ import { QuickCaptureModal } from './components/modals/QuickCaptureModal';
 import { SearchModal } from './components/modals/SearchModal';
 import { SettingsModal } from './components/modals/SettingsModal';
 import { ExecutionPlannerModal } from './components/modals/ExecutionPlannerModal';
+import { ScouterHUD } from './components/dbs/ScouterHUD';
 import { fetchAppState } from './services/api';
+import { soundEffects } from './services/soundEffects';
 import { AppState, NavigationTab } from './types';
-import { RefreshCw, AlertCircle } from 'lucide-react';
+import { RefreshCw, AlertCircle, Zap } from 'lucide-react';
 
 export function App() {
   const [activeTab, setActiveTab] = useState<NavigationTab>('home');
@@ -30,6 +32,7 @@ export function App() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
+  const [isScouterOpen, setIsScouterOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Initial fetch
@@ -62,16 +65,24 @@ export function App() {
 
       if (e.key === '/') {
         e.preventDefault();
+        soundEffects.playButtonTap();
         setIsSearchOpen(true);
       } else if (e.key === 'q' || e.key === 'Q') {
         e.preventDefault();
+        soundEffects.playCapsulePop();
         setIsQuickCaptureOpen(true);
       } else if (e.key === 'c' || e.key === 'C') {
         e.preventDefault();
+        soundEffects.playKiCharge();
         setIsAICoachOpen(true);
       } else if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
+        soundEffects.playButtonTap();
         setIsPlannerOpen(true);
+      } else if (e.key === 's' || e.key === 'S') {
+        e.preventDefault();
+        soundEffects.playScouterBeep();
+        setIsScouterOpen(prev => !prev);
       }
     };
 
@@ -80,6 +91,7 @@ export function App() {
   }, []);
 
   const handleOpenAICoachWithContext = (subject: string, docTitle: string) => {
+    soundEffects.playKiCharge();
     setAiContextSubject(subject);
     setAiContextDoc(docTitle);
     setIsAICoachOpen(true);
@@ -92,15 +104,12 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-canvas flex flex-col items-center justify-center p-6 space-y-4">
-        <div className="w-12 h-12 rounded-2xl bg-terracotta-500 flex items-center justify-center text-white shadow-warm-lg animate-bounce">
-          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
-            <path d="M14 34V14L24 24L34 14V34" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-            <circle cx="24" cy="24" r="3" fill="currentColor"/>
-          </svg>
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-dbs-blue to-blue-700 flex items-center justify-center text-white shadow-ki-blue animate-bounce">
+          <Zap className="w-8 h-8 text-amber-300" />
         </div>
-        <div className="flex items-center gap-2 text-charcoal-700 font-bold text-sm">
-          <RefreshCw className="w-4 h-4 animate-spin text-terracotta-500" />
-          <span>Starting The Growth Lab Studio...</span>
+        <div className="flex items-center gap-2 text-dbs-blue font-mono font-black text-sm">
+          <RefreshCw className="w-4 h-4 animate-spin text-dbs-blue" />
+          <span>Synchronizing Divine Ki Energy...</span>
         </div>
       </div>
     );
@@ -110,14 +119,14 @@ export function App() {
     return (
       <div className="min-h-screen bg-canvas flex flex-col items-center justify-center p-6 text-center">
         <div className="max-w-md bg-canvas-card border border-canvas-border rounded-2xl p-6 shadow-warm-lg space-y-4">
-          <AlertCircle className="w-10 h-10 text-terracotta-500 mx-auto" />
-          <h2 className="text-lg font-bold text-charcoal-900">Connection to Backend Required</h2>
+          <AlertCircle className="w-10 h-10 text-dbs-orange mx-auto" />
+          <h2 className="text-lg font-bold text-charcoal-900 font-sans">Connection to Training Server Required</h2>
           <p className="text-xs text-charcoal-600 leading-relaxed">
             Could not connect to The Growth Lab local backend API. Ensure the server is running on port 3001.
           </p>
           <button
             onClick={loadState}
-            className="px-5 py-2.5 bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs rounded-xl shadow-warm-sm transition-all"
+            className="px-5 py-2.5 bg-dbs-blue hover:bg-cyan-400 text-slate-950 font-black text-xs rounded-xl shadow-ki-blue transition-all"
           >
             Retry Connection
           </button>
@@ -127,7 +136,7 @@ export function App() {
   }
 
   return (
-    <div className="flex min-h-screen bg-canvas font-sans selection:bg-terracotta-100 selection:text-terracotta-800">
+    <div className="flex min-h-screen bg-canvas font-sans selection:bg-dbs-blue/20 selection:text-dbs-blue">
       {/* Desktop Persistent Sidebar */}
       <div className="hidden md:block">
         <Sidebar
@@ -147,13 +156,13 @@ export function App() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden bg-charcoal-900/50 backdrop-blur-sm">
-          <div className="w-72 bg-canvas-subtle h-full shadow-warm-xl flex flex-col animate-fade-in">
+        <div className="fixed inset-0 z-40 md:hidden bg-charcoal-900/70 backdrop-blur-sm">
+          <div className="w-72 bg-canvas-subtle h-full shadow-warm-xl flex flex-col animate-fade-in border-r border-dbs-blue/30">
             <div className="p-4 flex justify-between items-center border-b border-canvas-border">
-              <span className="font-extrabold text-charcoal-900 text-sm">THE GROWTH LAB</span>
+              <span className="font-black text-dbs-blue text-sm font-mono">THE GROWTH LAB • DBS</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1 rounded-lg text-charcoal-500 hover:text-charcoal-900"
+                className="p-1 rounded-lg text-charcoal-500 hover:text-charcoal-200"
               >
                 ✕
               </button>
@@ -196,6 +205,7 @@ export function App() {
           onOpenAICoach={() => setIsAICoachOpen(true)}
           onOpenQuickCapture={() => setIsQuickCaptureOpen(true)}
           onOpenPlanner={() => setIsPlannerOpen(true)}
+          onOpenScouter={() => setIsScouterOpen(true)}
           assignments={appState.assignments}
           onToggleMobileMenu={() => setMobileMenuOpen(true)}
         />
@@ -243,6 +253,13 @@ export function App() {
           )}
         </main>
       </div>
+
+      {/* Tactical Dragon Ball Super Scouter HUD Overlay */}
+      <ScouterHUD
+        isOpen={isScouterOpen}
+        onClose={() => setIsScouterOpen(false)}
+        userPowerLevel={9001}
+      />
 
       {/* Global Modals */}
       <AICoachModal

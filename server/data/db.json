@@ -1,6 +1,6 @@
 {
   "profile": {
-    "name": "Alex Vance",
+    "name": "Bhavin Sharma",
     "title": "MBA Candidate & Operations/Product Specialist",
     "tagline": "just do not simply learn, build along with it",
     "targetRoles": [
@@ -45,6 +45,18 @@
     "history": []
   },
   "quickCaptures": [
+    {
+      "id": "qc-1794734549979",
+      "content": "Automated Test: Bottleneck in dispatch staging",
+      "category": "business_observation",
+      "tags": [
+        "Test",
+        "Ops"
+      ],
+      "targetModule": "Operations Lab",
+      "status": "inbox",
+      "createdAt": "2026-11-15T09:22:29.979Z"
+    },
     {
       "id": "qc-1794733451123",
       "content": "Automated Test: Bottleneck in dispatch staging",
@@ -259,6 +271,28 @@
   "academicNotes": [],
   "quizzes": [],
   "communicationAttempts": [
+    {
+      "id": "ca-1794734549985",
+      "prompt": "Explain sunk cost fallacy",
+      "durationSeconds": 90,
+      "transcript": "Basically, sunk costs have already been spent and cannot be recovered by any future decision.",
+      "audioData": null,
+      "clarityScore": 65,
+      "feedback": {
+        "fillerWords": [
+          "basically"
+        ],
+        "strengths": [
+          "Clear central thesis delivered without hesitation.",
+          "Relevant business framing maintained throughout."
+        ],
+        "improvements": [
+          "Reduce filler word usage (basically). Practice pausing silently for 1 second instead of voicing filler sounds."
+        ]
+      },
+      "category": "Explaining Business Concepts",
+      "createdAt": "2026-11-15T09:22:29.985Z"
+    },
     {
       "id": "ca-1794733451133",
       "prompt": "Explain sunk cost fallacy",
@@ -563,6 +597,33 @@
     ],
     "sops": [
       {
+        "id": "sop-1794734549993",
+        "processName": "Test Warehouse Intake Protocol",
+        "objective": "Validate all incoming shipments within 30 minutes",
+        "scope": "Warehouse Receiving Team",
+        "owner": "Intake Lead",
+        "inputs": [
+          "Bill of Lading",
+          "Physical pallets"
+        ],
+        "steps": [
+          "Scan barcode",
+          "Verify condition tag",
+          "Update ERP stock level"
+        ],
+        "outputs": [
+          "Receipt signed",
+          "Inventory ledger updated"
+        ],
+        "qualityCheckpoints": [
+          "Zero damage unlogged"
+        ],
+        "escalation": "Page duty manager if discrepancies > 5%",
+        "exceptions": "Cold-chain items take priority",
+        "status": "active",
+        "updatedAt": "2026-11-15T09:22:29.993Z"
+      },
+      {
         "id": "sop-1794733451142",
         "processName": "Test Warehouse Intake Protocol",
         "objective": "Validate all incoming shipments within 30 minutes",
@@ -661,7 +722,7 @@
       },
       {
         "pattern": "Filler word: 'basically' used when transitioning to conclusions",
-        "occurrences": 8,
+        "occurrences": 9,
         "advice": "Replace with a one-second deliberate pause."
       },
       {
@@ -721,7 +782,7 @@
         "evidence": "Customer retention yields 3x higher gross margin",
         "assumptions": "Existing customers have high willingness to expand",
         "tradeOffs": "Slower top-line new logo acquisition",
-        "submittedAt": "2026-11-15T09:04:11.148Z"
+        "submittedAt": "2026-11-15T09:22:29.998Z"
       }
     },
     {

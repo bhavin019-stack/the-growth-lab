@@ -5,26 +5,70 @@
 @layer base {
   body {
     @apply bg-canvas text-charcoal-900 font-sans;
-    background-color: #FAF8F5;
+    background-color: #0B0E17;
+    background-image: 
+      radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(255, 87, 34, 0.06) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 60%);
+    background-attachment: fixed;
   }
 
-  /* Custom scrollbar for modern studio feel */
+  /* Custom glowing Dragon Ball Super scouter scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #0B0E17;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D3CDC0;
+    background: #242F4A;
     border-radius: 9999px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #B6AFA2;
+    background: #00E5FF;
+    box-shadow: 0 0 10px #00E5FF;
   }
 }
 
-.font-display {
-  font-family: 'Fraunces', Georgia, serif;
+/* Dragon Ball Super Glowing Ki Auras */
+.ki-glow-blue {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35), inset 0 0 10px rgba(0, 229, 255, 0.15);
+  border-color: rgba(0, 229, 255, 0.6);
+}
+
+.ki-glow-gold {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4), inset 0 0 12px rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+.ki-glow-ui {
+  box-shadow: 0 0 30px rgba(224, 247, 250, 0.5), inset 0 0 15px rgba(224, 247, 250, 0.25);
+  border-color: rgba(224, 247, 250, 0.7);
+}
+
+.ki-glow-god {
+  box-shadow: 0 0 25px rgba(255, 23, 68, 0.45), inset 0 0 12px rgba(255, 23, 68, 0.2);
+  border-color: rgba(255, 23, 68, 0.6);
+}
+
+/* Tactical Scouter HUD scanline effect */
+.scouter-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 230, 118, 0.15) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.04),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.04)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Super Dragon Ball Star Symbol */
+.star-shadow {
+  filter: drop-shadow(0 0 6px rgba(255, 87, 34, 0.9));
 }

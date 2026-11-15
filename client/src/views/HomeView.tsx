@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Play, 
-  Clock, 
-  CheckCircle2, 
-  ArrowRight, 
   Sparkles, 
   Layers, 
   GraduationCap, 
   Compass, 
-  BrainCircuit, 
   Mic, 
-  Check, 
   Flame, 
   Zap, 
   RotateCcw,
-  Volume2
+  Crosshair,
+  Award,
+  ArrowRight
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { AppState, NavigationTab } from '../types';
 import { updateDailyWorkoutStep, completeDailyWorkout } from '../services/api';
+import { soundEffects } from '../services/soundEffects';
+import { DragonRadarWidget } from '../components/dbs/DragonRadarWidget';
 
 interface HomeViewProps {
   appState: AppState;
@@ -40,15 +39,25 @@ export const HomeView: React.FC<HomeViewProps> = ({
   // 20-min workout interactive state
   const [workoutActive, setWorkoutActive] = useState(false);
   const [currentStep, setCurrentStep] = useState(dailyWorkout.currentStep || 1);
-  const [timerSeconds, setTimerSeconds] = useState(300); // 5 mins per step
+  const [timerSeconds, setTimerSeconds] = useState(300);
   const [timerRunning, setTimerRunning] = useState(false);
   const [reflectionInput, setReflectionInput] = useState('');
   const [isWorkoutCompleted, setIsWorkoutCompleted] = useState(dailyWorkout.isCompleted);
 
   // 5-min minimum routine modal/toggle
   const [routine5Active, setRoutine5Active] = useState(false);
-  const [routine5Step, setRoutine5Step] = useState(1);
   const [routine5Done, setRoutine5Done] = useState(false);
+
+  // Dragon Balls collected count calculation
+  const dragonBallsCollected = Math.min(
+    7,
+    (isWorkoutCompleted ? 2 : 0) +
+    (communicationAttempts.length > 0 ? 1 : 0) +
+    (appState.operationsLab.sops.length > 0 ? 1 : 0) +
+    (proofOfWorkProjects.length > 0 ? 1 : 0) +
+    (appState.materials.length > 0 ? 1 : 0) +
+    (appState.linkedInDrafts.length > 0 ? 1 : 0)
+  );
 
   // Countdown timer effect
   useEffect(() => {
@@ -59,6 +68,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       }, 1000);
     } else if (timerSeconds === 0) {
       setTimerRunning(false);
+      soundEffects.playInstantTransmission();
     }
     return () => clearInterval(interval);
   }, [timerRunning, timerSeconds]);
@@ -66,33 +76,40 @@ export const HomeView: React.FC<HomeViewProps> = ({
   const workoutSteps = [
     {
       step: 1,
-      title: "5m Read & Absorb",
-      instruction: "Read one short business observation or course slide. Focus on the core mechanism.",
+      title: "5m Read & Absorb (Ki Gathering)",
+      instruction: "Read one core business mechanism or course slide. Focus on the underlying structural trade-off.",
       resource: "Microeconomics: Cost Curves & Returns to Scale (Slide 4)",
       duration: 300
     },
     {
       step: 2,
-      title: "5m Explain in Your Own Words",
-      instruction: "Explain what you just read out loud or write it simply without looking at the text.",
-      prompt: "What is the core takeaway if you had to explain this to a non-business friend?",
+      title: "5m Explain in Your Own Voice (Kiai Roar)",
+      instruction: "Explain what you just read out loud in simple terms without looking at the text.",
+      prompt: "What is the core takeaway if you had to explain this to a non-business ally?",
       duration: 300
     },
     {
       step: 3,
-      title: "5m Structure into Framework",
+      title: "5m Structure into Framework (Martial Stance)",
       instruction: "Organize your explanation: Point → Reason → Example (PRE) or Situation → Action → Result.",
       duration: 300
     },
     {
       step: 4,
-      title: "5m Record & Reflect",
-      instruction: "Speak or record your final crisp 60-second summary. Eliminate filler words like 'basically'.",
+      title: "5m Record & Reflect (Super Saiyan Burst)",
+      instruction: "Speak or record your final crisp 60-second summary. Eliminate filler sounds and own your power.",
       duration: 300
     }
   ];
 
+  const handleStartWorkout = () => {
+    soundEffects.playKiCharge();
+    setWorkoutActive(true);
+    setTimerRunning(true);
+  };
+
   const handleNextWorkoutStep = async () => {
+    soundEffects.playInstantTransmission();
     if (currentStep < 4) {
       const next = currentStep + 1;
       setCurrentStep(next);
@@ -100,17 +117,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
       setTimerRunning(false);
       await updateDailyWorkoutStep(next, 300);
     } else {
-      // Complete workout
       setIsWorkoutCompleted(true);
       setWorkoutActive(false);
+      soundEffects.playSuperSaiyanAura();
       try {
         confetti({
-          particleCount: 80,
-          spread: 60,
+          particleCount: 120,
+          spread: 75,
+          colors: ['#00E5FF', '#FFD700', '#FF5722', '#FFFFFF'],
           origin: { y: 0.6 }
         });
       } catch {}
-      await completeDailyWorkout(reflectionInput || "Completed daily 20-min communication workout.");
+      await completeDailyWorkout(reflectionInput || "Completed Hyperbolic Time Chamber 20-min daily gravity workout.");
       onStateUpdate(prev => ({
         ...prev,
         dailyWorkout: { ...prev.dailyWorkout, isCompleted: true }
@@ -119,15 +137,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
   };
 
   const handleStart5MinRoutine = () => {
+    soundEffects.playInstantTransmission();
     setRoutine5Active(true);
-    setRoutine5Step(1);
     setRoutine5Done(false);
   };
 
   const handleComplete5Min = () => {
+    soundEffects.playSuperSaiyanAura();
     setRoutine5Done(true);
     try {
-      confetti({ particleCount: 50, spread: 50, origin: { y: 0.7 } });
+      confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 } });
     } catch {}
     setTimeout(() => {
       setRoutine5Active(false);
@@ -147,166 +166,179 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
   return (
     <div className="space-y-6 max-w-6xl mx-auto pb-12 animate-fade-in">
-      {/* 1. SHORT PERSONALIZED WELCOME */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-canvas-card p-5 md:p-6 rounded-2xl border border-canvas-border shadow-warm-sm">
+      {/* 1. SUPER DRAGON BALLS RADAR TRACKER */}
+      <DragonRadarWidget completedCount={dragonBallsCollected} />
+
+      {/* 2. SAIYAN SCHOLAR WELCOME BANNER */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-canvas-card p-5 md:p-6 rounded-2xl border border-canvas-border shadow-warm-sm border-l-4 border-l-dbs-blue">
         <div>
-          <span className="text-[11px] font-bold text-terracotta-600 uppercase tracking-wider bg-terracotta-50 px-2.5 py-0.5 rounded-full border border-terracotta-200">
-            Personal Growth First • Academic Management Second
-          </span>
-          <h1 className="text-xl md:text-2xl font-bold text-charcoal-900 tracking-tight font-sans mt-1.5">
-            Welcome back, {profile.name.split(' ')[0]}
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono font-black text-dbs-blue uppercase tracking-widest bg-dbs-blue/10 px-2.5 py-0.5 rounded-full border border-dbs-blue/30 shadow-ki-blue">
+              TOURNAMENT OF POWER TRAINING CHAMBER
+            </span>
+            <span className="text-[10px] font-bold text-dbs-gold bg-dbs-gold/10 px-2 py-0.5 rounded border border-dbs-gold/30">
+              FORM: SUPER SAIYAN BLUE
+            </span>
+          </div>
+          <h1 className="text-xl md:text-2xl font-black text-charcoal-900 tracking-tight font-sans mt-2">
+            Welcome back, Saiyan Scholar {profile.name.split(' ')[0]}
           </h1>
-          <p className="text-xs md:text-sm text-charcoal-500 font-medium">
+          <p className="text-xs md:text-sm text-charcoal-500 font-medium mt-0.5">
             "{profile.tagline}"
           </p>
         </div>
 
-        {/* Momentum Indicator without guilt */}
-        <div className="flex items-center gap-3 bg-canvas-subtle p-2.5 rounded-xl border border-canvas-border shrink-0">
-          <div className="w-9 h-9 rounded-lg bg-ochre-100 text-ochre-700 flex items-center justify-center font-bold">
-            <Flame className="w-5 h-5 text-ochre-600" />
+        {/* Battle Power Meter */}
+        <div className="flex items-center gap-3 bg-canvas-subtle p-3 rounded-2xl border border-canvas-border shrink-0 shadow-warm-sm">
+          <div className="w-10 h-10 rounded-xl bg-dbs-blue/20 border border-dbs-blue flex items-center justify-center font-bold shadow-ki-blue text-dbs-blue">
+            <Zap className="w-5 h-5 animate-pulse text-dbs-blue" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-sm font-extrabold text-charcoal-900">Active Momentum</span>
-              <span className="text-[10px] bg-forest-50 text-forest-700 border border-forest-200 px-1.5 py-0.2 rounded font-semibold">
-                No Stress
+              <span className="text-sm font-black text-charcoal-900 font-mono">BATTLE POWER</span>
+              <span className="text-[10px] bg-dbs-scouter/20 text-dbs-scouter border border-dbs-scouter/40 px-1.5 py-0.2 rounded font-mono font-bold">
+                SCOUTER LOCK
               </span>
             </div>
-            <p className="text-[11px] text-charcoal-500">
-              {dailyWorkout.history.length + (isWorkoutCompleted ? 1 : 0)} workouts logged
+            <p className="text-xs font-mono font-black text-dbs-scouter">
+              9,001+ (DIVINE KI)
             </p>
           </div>
         </div>
       </div>
 
-      {/* 2 & 3. PROMINENT RECOMMENDED DAILY ACTIVITY + CLEAR START BUTTON */}
-      <div className="bg-gradient-to-br from-charcoal-900 to-charcoal-800 text-white rounded-3xl p-6 md:p-8 shadow-warm-xl relative overflow-hidden">
-        {/* Background Subtle Geometric Glow */}
-        <div className="absolute -right-16 -top-16 w-64 h-64 bg-terracotta-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute right-32 -bottom-20 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+      {/* 3. HYPERBOLIC TIME CHAMBER 20-MINUTE WORKOUT HERO CARD */}
+      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-white rounded-3xl p-6 md:p-8 shadow-ki-blue relative overflow-hidden border-2 border-dbs-blue/40">
+        {/* Animated Ki Energy Aura Background */}
+        <div className="absolute -right-16 -top-16 w-80 h-80 bg-dbs-blue/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute right-36 -bottom-20 w-60 h-60 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl space-y-4">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-full bg-white/10 text-amber-300 font-semibold text-xs flex items-center gap-1.5">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="px-3 py-1 rounded-full bg-dbs-blue/20 text-dbs-blue border border-dbs-blue/40 font-mono font-black text-xs flex items-center gap-1.5 shadow-ki-blue">
               <Sparkles className="w-3.5 h-3.5" />
-              Today's Recommended 20-Min Workout
+              100X GRAVITY CHAMBER • 20-MIN WORKOUT
             </span>
-            <span className="text-xs text-charcoal-300">• 4 Structured 5-Minute Phases</span>
+            <span className="text-xs text-charcoal-400 font-mono">4 Phased Saiyan Drills</span>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-bold font-sans tracking-tight text-white leading-snug">
+          <h2 className="text-2xl md:text-3xl font-black font-sans tracking-tight text-white leading-tight">
             {isWorkoutCompleted 
-              ? "Today's 20-Minute Communication Workout Completed!" 
-              : "20-Minute Communication Workout: Explaining Cost Trade-offs"}
+              ? "Gravity Chamber 20-Minute Drill Completed! Ki Maxed Out!" 
+              : "Hyperbolic Training: Articulating Cost Trade-Offs Under Pressure"}
           </h2>
 
           <p className="text-xs md:text-sm text-charcoal-300 leading-relaxed font-sans">
             {isWorkoutCompleted
-              ? "Great momentum. You articulated a business concept clearly and structured your thoughts. Feel free to explore your modules below."
-              : "Read 5m → Explain in your own words 5m → Structure with Point-Reason-Example 5m → Record & reflect 5m."}
+              ? "Your verbal ki output is synchronized. You demonstrated crisp business reasoning without verbal filler words. Super Saiyan Blue mastery elevated."
+              : "Read 5m (Absorb) → Explain in own words 5m (Kiai) → Structure into PRE 5m (Stance) → Record crisp 60s summary 5m (Super Saiyan Burst)."}
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             {!isWorkoutCompleted ? (
               <button
-                onClick={() => setWorkoutActive(true)}
-                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-sm shadow-warm-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
+                onClick={handleStartWorkout}
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-dbs-blue to-cyan-500 hover:from-cyan-400 hover:to-dbs-blue text-slate-950 font-black text-sm shadow-ki-blue hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
               >
-                <Play className="w-4 h-4 fill-white" />
-                <span>Start 20-Min Workout</span>
+                <Play className="w-4 h-4 fill-slate-950" />
+                <span>Power Up & Begin Workout</span>
               </button>
             ) : (
               <button
                 onClick={() => {
+                  soundEffects.playKiCharge();
                   setIsWorkoutCompleted(false);
                   setWorkoutActive(true);
                   setCurrentStep(1);
                   setTimerSeconds(300);
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition-all"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all border border-white/20 cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
-                <span>Practice Another Workout</span>
+                <span>Re-Enter Gravity Chamber</span>
               </button>
             )}
 
-            {/* 4. THE 5-MINUTE ALTERNATIVE */}
+            {/* KAIOKEN 5-MINUTE MINIMUM ALTERNATIVE */}
             <button
               onClick={handleStart5MinRoutine}
-              className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-charcoal-200 hover:text-white font-semibold text-xs border border-white/10 transition-all"
+              className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-red-950/40 hover:bg-red-900/60 text-red-300 hover:text-white font-bold text-xs border border-red-500/40 shadow-ki-god transition-all cursor-pointer"
             >
-              <Zap className="w-3.5 h-3.5 text-amber-300" />
-              <span>Busy today? Try 5-Minute Minimum</span>
+              <Zap className="w-3.5 h-3.5 text-red-400" />
+              <span>Busy today? Kaioken 5-Minute Burst</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* INTERACTIVE WORKOUT TRAY IF LAUNCHED */}
+      {/* INTERACTIVE GRAVITY CHAMBER WORKOUT TRAY */}
       {workoutActive && (
-        <div className="bg-canvas-card border-2 border-terracotta-400 rounded-2xl p-6 shadow-warm-lg space-y-5 animate-fade-in">
+        <div className="bg-canvas-card border-2 border-dbs-blue rounded-3xl p-6 shadow-ki-blue space-y-5 animate-fade-in">
           <div className="flex items-center justify-between border-b border-canvas-border pb-4">
             <div>
-              <span className="text-xs font-bold text-terracotta-600 uppercase tracking-wider">
-                Phase {currentStep} of 4 • {workoutSteps[currentStep - 1].title}
+              <span className="text-xs font-mono font-black text-dbs-blue uppercase tracking-widest flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-dbs-blue animate-ping" />
+                PHASE {currentStep} OF 4 • {workoutSteps[currentStep - 1].title}
               </span>
-              <h3 className="text-lg font-bold text-charcoal-900 mt-0.5">
+              <h3 className="text-lg font-black text-charcoal-900 mt-1">
                 {workoutSteps[currentStep - 1].instruction}
               </h3>
             </div>
-            {/* Step Timer */}
+            {/* Step Timer with Scouter Styling */}
             <div className="flex items-center gap-3">
-              <div className="text-2xl font-mono font-bold text-charcoal-900 bg-canvas-subtle px-3 py-1 rounded-xl border border-canvas-border">
+              <div className="text-2xl font-mono font-black text-dbs-scouter bg-black/60 px-4 py-1.5 rounded-xl border border-dbs-scouter/50 shadow-scouter">
                 {formatTime(timerSeconds)}
               </div>
               <button
-                onClick={() => setTimerRunning(!timerRunning)}
-                className="px-3 py-1.5 rounded-lg bg-charcoal-800 text-white font-semibold text-xs hover:bg-charcoal-900 transition-colors"
+                onClick={() => {
+                  soundEffects.playButtonTap();
+                  setTimerRunning(!timerRunning);
+                }}
+                className="px-3.5 py-2 rounded-xl bg-charcoal-800 hover:bg-charcoal-700 text-white font-bold text-xs transition-colors cursor-pointer"
               >
-                {timerRunning ? 'Pause' : 'Start Timer'}
+                {timerRunning ? 'Pause Gravity' : 'Engage Timer'}
               </button>
             </div>
           </div>
 
-          {/* Phase Specific Content */}
-          <div className="p-4 rounded-xl bg-canvas-subtle border border-canvas-border space-y-3">
+          {/* Phase Content */}
+          <div className="p-4 rounded-2xl bg-canvas-subtle border border-canvas-border space-y-3">
             {currentStep === 1 && (
               <div className="text-xs text-charcoal-700 leading-relaxed">
-                <p className="font-semibold text-charcoal-900 mb-1">Assigned Mini Resource:</p>
-                <div className="p-3 bg-canvas-card rounded-lg border border-canvas-border font-serif text-sm">
-                  "In competitive supply, the short-run marginal cost curve above the average variable cost curve represents the firm's supply curve. Sunk costs are past unrecoverable outlays and must strictly be ignored in forward-looking pricing decisions."
+                <p className="font-bold text-charcoal-900 mb-1 text-sm">Assigned Course Insight (Ki Gathering):</p>
+                <div className="p-3.5 bg-canvas-card rounded-xl border border-dbs-blue/30 font-serif text-sm text-charcoal-900 shadow-warm-sm">
+                  "In competitive markets, sunk costs are historical outlays that cannot be altered by future decisions. A master strategist ignores sunk expenditures and bases marginal capacity only on prospective forward returns."
                 </div>
               </div>
             )}
 
             {currentStep === 2 && (
               <div className="text-xs text-charcoal-700 space-y-2">
-                <p className="font-semibold text-charcoal-900">Step 2: Unfiltered Explanation</p>
+                <p className="font-bold text-charcoal-900 text-sm">Step 2: Unfiltered Explanation (Kiai Roar)</p>
                 <p>Speak aloud or jot down your raw explanation. Do not worry about polish yet.</p>
                 <textarea
                   rows={3}
-                  placeholder="My explanation in plain English..."
-                  className="w-full bg-canvas-card border border-canvas-border rounded-xl p-2.5 text-xs text-charcoal-900"
+                  placeholder="Explain in plain English with conviction..."
+                  className="w-full bg-canvas-card border border-canvas-border rounded-xl p-3 text-xs text-charcoal-900 focus:outline-none focus:border-dbs-blue"
                 />
               </div>
             )}
 
             {currentStep === 3 && (
               <div className="text-xs text-charcoal-700 space-y-2">
-                <p className="font-semibold text-charcoal-900">Step 3: Point → Reason → Example (PRE)</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                  <div className="p-2.5 bg-canvas-card rounded-lg border border-canvas-border">
-                    <span className="font-bold text-terracotta-600 block">Point:</span>
-                    <span className="text-charcoal-600 text-[11px]">Sunk costs should never influence future product decisions.</span>
+                <p className="font-bold text-charcoal-900 text-sm">Step 3: Point → Reason → Example (Martial Stance)</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                  <div className="p-3 bg-canvas-card rounded-xl border border-dbs-blue/40">
+                    <span className="font-black text-dbs-blue text-[11px] block uppercase">Point:</span>
+                    <span className="text-charcoal-700 text-xs">Sunk costs must never dictate future resource allocation.</span>
                   </div>
-                  <div className="p-2.5 bg-canvas-card rounded-lg border border-canvas-border">
-                    <span className="font-bold text-terracotta-600 block">Reason:</span>
-                    <span className="text-charcoal-600 text-[11px]">Because past dollars cannot be recovered regardless of next actions.</span>
+                  <div className="p-3 bg-canvas-card rounded-xl border border-dbs-gold/40">
+                    <span className="font-black text-dbs-gold text-[11px] block uppercase">Reason:</span>
+                    <span className="text-charcoal-700 text-xs">Because historical capital is unrecoverable regardless of outcome.</span>
                   </div>
-                  <div className="p-2.5 bg-canvas-card rounded-lg border border-canvas-border">
-                    <span className="font-bold text-terracotta-600 block">Example:</span>
-                    <span className="text-charcoal-600 text-[11px]">Continuing an unprofitable IT project just because \$100k was spent.</span>
+                  <div className="p-3 bg-canvas-card rounded-xl border border-dbs-orange/40">
+                    <span className="font-black text-dbs-orange text-[11px] block uppercase">Example:</span>
+                    <span className="text-charcoal-700 text-xs">Pouring further engineering budget into a failing legacy tool.</span>
                   </div>
                 </div>
               </div>
@@ -314,14 +346,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             {currentStep === 4 && (
               <div className="text-xs text-charcoal-700 space-y-2">
-                <p className="font-semibold text-charcoal-900">Step 4: 60-Second Final Audio or Reflection</p>
-                <p>Record your voice or summarize your final polished version.</p>
+                <p className="font-bold text-charcoal-900 text-sm">Step 4: 60-Second Final Super Saiyan Summary</p>
+                <p>Speak with executive authority. Own your conclusion without verbal filler sounds.</p>
                 <textarea
                   rows={2}
                   value={reflectionInput}
                   onChange={(e) => setReflectionInput(e.target.value)}
-                  placeholder="Final reflection or feedback on your delivery..."
-                  className="w-full bg-canvas-card border border-canvas-border rounded-xl p-2.5 text-xs text-charcoal-900"
+                  placeholder="Record your final reflections or key takeaway..."
+                  className="w-full bg-canvas-card border border-canvas-border rounded-xl p-3 text-xs text-charcoal-900 focus:outline-none focus:border-dbs-blue"
                 />
               </div>
             )}
@@ -330,74 +362,77 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="flex justify-between items-center pt-2">
             <button
               onClick={() => setWorkoutActive(false)}
-              className="text-xs text-charcoal-500 hover:text-charcoal-800 font-semibold"
+              className="text-xs text-charcoal-500 hover:text-charcoal-800 font-semibold cursor-pointer"
             >
-              Exit Workout
+              Exit Chamber
             </button>
 
             <button
               onClick={handleNextWorkoutStep}
-              className="flex items-center gap-1.5 px-5 py-2.5 bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold text-xs rounded-xl shadow-warm-sm transition-all"
+              className="flex items-center gap-1.5 px-6 py-2.5 bg-dbs-blue hover:bg-cyan-400 text-slate-950 font-black text-xs rounded-xl shadow-ki-blue transition-all cursor-pointer"
             >
-              <span>{currentStep === 4 ? 'Finish Workout' : 'Next 5-Min Step'}</span>
+              <span>{currentStep === 4 ? 'Master Gravity Workout' : 'Next 5-Min Phase'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       )}
 
-      {/* 5-MINUTE MINIMUM ROUTINE MODAL */}
+      {/* KAIOKEN 5-MINUTE MINIMUM ROUTINE */}
       {routine5Active && (
-        <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 shadow-warm-sm space-y-3 animate-fade-in">
+        <div className="bg-red-950/30 border-2 border-red-500/50 rounded-2xl p-5 shadow-ki-god space-y-3 animate-fade-in">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-amber-600" />
-              <h3 className="font-bold text-charcoal-900 text-sm">
-                5-Minute Minimum Routine (Busy Day Mode)
+              <Flame className="w-5 h-5 text-red-500 animate-pulse" />
+              <h3 className="font-black text-white text-sm">
+                Kaioken 5-Minute Burst Mode (Busy Day Power Drill)
               </h3>
             </div>
             <button
               onClick={() => setRoutine5Active(false)}
-              className="text-xs text-charcoal-400 hover:text-charcoal-700 font-semibold"
+              className="text-xs text-charcoal-400 hover:text-white font-semibold cursor-pointer"
             >
               Close
             </button>
           </div>
-          <p className="text-xs text-charcoal-600 leading-relaxed">
-            1 min observe one business problem → 1 min think about the root cause → 2 min speak/write your solution → 1 min reflect.
+          <p className="text-xs text-charcoal-300 leading-relaxed">
+            1 min observe one business dilemma → 1 min uncover root cause → 2 min speak/write recommendation → 1 min reflect.
           </p>
-          <div className="p-3 bg-white rounded-xl border border-amber-200 text-xs text-charcoal-800">
-            <strong>Today's Rapid Prompt:</strong> "When order volume doubles, why does customer support turnaround time triple rather than double?"
+          <div className="p-3 bg-canvas-card rounded-xl border border-red-500/30 text-xs text-charcoal-900 font-bold">
+            Today's Rapid Prompt: "When customer support ticket backlog doubles, why does turnaround time triple instead of double?"
           </div>
           <div className="flex items-center justify-between pt-1">
-            <span className="text-[11px] text-charcoal-500 font-medium">Takes 5 mins • Never breaks momentum</span>
+            <span className="text-[11px] text-charcoal-400 font-mono">10X KI SURGE • ZERO MOMENTUM LOSS</span>
             <button
               onClick={handleComplete5Min}
-              className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl transition-all"
+              className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-black text-xs rounded-xl transition-all shadow-ki-god cursor-pointer"
             >
-              {routine5Done ? 'Completed!' : 'Mark 5-Min Routine Done'}
+              {routine5Done ? 'Kaioken Completed!' : 'Mark Kaioken Burst Done'}
             </button>
           </div>
         </div>
       )}
 
-      {/* DASHBOARD GRID: 5. UPCOMING DEADLINES & 6. COMPACT PROGRESS SNAPSHOT */}
+      {/* DASHBOARD GRID: UPCOMING DEADLINES & PROGRESS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Upcoming Academic Deadlines */}
         <div className="bg-canvas-card border border-canvas-border rounded-2xl p-5 shadow-warm-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <GraduationCap className="w-4 h-4 text-terracotta-500" />
+                <GraduationCap className="w-4 h-4 text-dbs-blue" />
                 <h3 className="font-bold text-charcoal-900 text-sm font-sans">
-                  Upcoming Academic Deadlines
+                  Capsule Corp Academic Deadlines
                 </h3>
               </div>
               <button
-                onClick={() => onNavigate('mba-hub')}
-                className="text-xs font-semibold text-terracotta-600 hover:text-terracotta-700 flex items-center gap-1"
+                onClick={() => {
+                  soundEffects.playInstantTransmission();
+                  onNavigate('mba-hub');
+                }}
+                className="text-xs font-semibold text-dbs-blue hover:text-cyan-400 flex items-center gap-1 cursor-pointer"
               >
-                <span>View all</span>
+                <span>Archives</span>
                 <ArrowRight className="w-3 h-3" />
               </button>
             </div>
@@ -416,10 +451,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       Due: {assign.dueDate} • Est: {assign.estimatedMinutes}m
                     </p>
                   </div>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full shrink-0 font-mono ${
                     assign.priority === 'must'
-                      ? 'bg-terracotta-50 text-terracotta-700 border border-terracotta-200'
-                      : 'bg-ochre-50 text-ochre-700 border border-ochre-200'
+                      ? 'bg-dbs-orange/20 text-dbs-orange border border-dbs-orange/40'
+                      : 'bg-dbs-gold/20 text-dbs-gold border border-dbs-gold/40'
                   }`}>
                     {assign.priority.toUpperCase()}
                   </span>
@@ -429,10 +464,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
 
           <div className="mt-3 pt-3 border-t border-canvas-border flex items-center justify-between text-[11px] text-charcoal-400">
-            <span>Microsoft Outlook: Synced manually</span>
+            <span>Synced with Tournament Schedule</span>
             <button
               onClick={() => onNavigate('mba-hub')}
-              className="text-terracotta-600 font-semibold hover:underline"
+              className="text-dbs-blue font-bold hover:underline"
             >
               + Add assignment
             </button>
@@ -444,63 +479,69 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-forest-500" />
+                <Award className="w-4 h-4 text-dbs-gold" />
                 <h3 className="font-bold text-charcoal-900 text-sm font-sans">
-                  Compact Progress Snapshot
+                  Saiyan Capability Snapshot
                 </h3>
               </div>
               <button
-                onClick={() => onNavigate('my-growth')}
-                className="text-xs font-semibold text-forest-600 hover:text-forest-700 flex items-center gap-1"
+                onClick={() => {
+                  soundEffects.playInstantTransmission();
+                  onNavigate('my-growth');
+                }}
+                className="text-xs font-semibold text-dbs-gold hover:text-amber-300 flex items-center gap-1 cursor-pointer"
               >
-                <span>Analytics</span>
+                <span>Power Radar</span>
                 <ArrowRight className="w-3 h-3" />
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="grid grid-cols-3 gap-2 text-center font-mono">
               <div className="p-3 rounded-xl bg-canvas-subtle border border-canvas-border">
-                <span className="text-lg font-extrabold text-charcoal-900 block font-mono">
+                <span className="text-lg font-black text-dbs-blue block">
                   {communicationAttempts.length}
                 </span>
-                <span className="text-[10px] text-charcoal-500 font-medium">Speaking Attempts</span>
+                <span className="text-[10px] text-charcoal-400 font-sans">Kiai Drills</span>
               </div>
               <div className="p-3 rounded-xl bg-canvas-subtle border border-canvas-border">
-                <span className="text-lg font-extrabold text-terracotta-600 block font-mono">
+                <span className="text-lg font-black text-dbs-gold block">
                   {appState.operationsLab.sops.length + appState.operationsLab.processMaps.length}
                 </span>
-                <span className="text-[10px] text-charcoal-500 font-medium">Ops & SOP Assets</span>
+                <span className="text-[10px] text-charcoal-400 font-sans">Ops Blueprints</span>
               </div>
               <div className="p-3 rounded-xl bg-canvas-subtle border border-canvas-border">
-                <span className="text-lg font-extrabold text-forest-600 block font-mono">
+                <span className="text-lg font-black text-dbs-scouter block">
                   {proofOfWorkProjects.length}
                 </span>
-                <span className="text-[10px] text-charcoal-500 font-medium">Proof of Work</span>
+                <span className="text-[10px] text-charcoal-400 font-sans">Proof of Work</span>
               </div>
             </div>
 
-            <div className="mt-4 p-3 rounded-xl bg-forest-50/60 border border-forest-100 flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-forest-600 shrink-0" />
+            <div className="mt-4 p-3 rounded-xl bg-dbs-blue/10 border border-dbs-blue/30 flex items-center gap-3">
+              <Zap className="w-5 h-5 text-dbs-blue shrink-0 animate-pulse" />
               <div className="text-xs">
-                <p className="font-bold text-forest-900">Highest Momentum Skill Area</p>
-                <p className="text-forest-700 text-[11px]">Process Mapping & Standard Operating Procedures (75% mastery)</p>
+                <p className="font-bold text-dbs-blue">Highest Battle Mastery</p>
+                <p className="text-charcoal-700 text-[11px]">Process Mapping & Standard Operating Procedures (75% mastery)</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 7. VISUAL SHORTCUTS TO LEARNING AREAS */}
+      {/* 4. SHORTCUTS TO TRAINING CHAMBERS */}
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-charcoal-400 uppercase tracking-wider">
-          Studio Learning Shortcuts
+        <h3 className="text-xs font-mono font-bold text-dbs-blue uppercase tracking-widest">
+          Capsule Corp Training Chambers
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <button
-            onClick={() => onNavigate('skill-studio')}
-            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-terracotta-400 text-left transition-all hover:shadow-warm group"
+            onClick={() => {
+              soundEffects.playInstantTransmission();
+              onNavigate('skill-studio');
+            }}
+            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-dbs-blue text-left transition-all hover:shadow-ki-blue group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-xl bg-terracotta-50 text-terracotta-600 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-dbs-blue/20 text-dbs-blue flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
               <Mic className="w-4 h-4" />
             </div>
             <p className="text-xs font-bold text-charcoal-900">Communication Gym</p>
@@ -508,21 +549,27 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </button>
 
           <button
-            onClick={() => onNavigate('skill-studio')}
-            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-forest-400 text-left transition-all hover:shadow-warm group"
+            onClick={() => {
+              soundEffects.playInstantTransmission();
+              onNavigate('skill-studio');
+            }}
+            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-dbs-scouter text-left transition-all hover:shadow-scouter group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-emerald-950/40 text-dbs-scouter flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
               <Layers className="w-4 h-4" />
             </div>
-            <p className="text-xs font-bold text-charcoal-900">Operations Lab</p>
+            <p className="text-xs font-bold text-charcoal-900">Capsule Ops Lab</p>
             <p className="text-[10px] text-charcoal-500 mt-0.5">SOPs & Process Maps</p>
           </button>
 
           <button
-            onClick={() => onNavigate('explore')}
-            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-amber-400 text-left transition-all hover:shadow-warm group"
+            onClick={() => {
+              soundEffects.playInstantTransmission();
+              onNavigate('explore');
+            }}
+            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-dbs-gold text-left transition-all hover:shadow-ki-gold group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-xl bg-ochre-50 text-ochre-600 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-amber-950/40 text-dbs-gold flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
               <Compass className="w-4 h-4" />
             </div>
             <p className="text-xs font-bold text-charcoal-900">Brand Lab & Canvas</p>
@@ -530,72 +577,18 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </button>
 
           <button
-            onClick={() => onNavigate('mba-hub')}
-            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-ink-400 text-left transition-all hover:shadow-warm group"
+            onClick={() => {
+              soundEffects.playInstantTransmission();
+              onNavigate('mba-hub');
+            }}
+            className="p-4 rounded-2xl bg-canvas-card border border-canvas-border hover:border-dbs-orange text-left transition-all hover:shadow-warm group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-xl bg-ink-50 text-ink-600 flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+            <div className="w-8 h-8 rounded-xl bg-red-950/40 text-dbs-orange flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
               <GraduationCap className="w-4 h-4" />
             </div>
-            <p className="text-xs font-bold text-charcoal-900">MBA Academic Hub</p>
+            <p className="text-xs font-bold text-charcoal-900">Grand MBA Archives</p>
             <p className="text-[10px] text-charcoal-500 mt-0.5">Term II Preserved PPTXs</p>
           </button>
-        </div>
-      </div>
-
-      {/* 8. RECENTLY CONTINUED ACTIVITIES */}
-      <div className="bg-canvas-card border border-canvas-border rounded-2xl p-5 shadow-warm-sm space-y-3">
-        <h3 className="font-bold text-charcoal-900 text-sm font-sans">
-          Recently Continued Activities
-        </h3>
-
-        <div className="divide-y divide-canvas-border">
-          <div className="py-2.5 flex items-center justify-between text-xs">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-forest-500" />
-              <div>
-                <span className="font-bold text-charcoal-900">Standard Operating Procedure: Escalation Protocol</span>
-                <span className="text-charcoal-400 text-[11px] block">Operations Lab • Updated 2 hours ago</span>
-              </div>
-            </div>
-            <button
-              onClick={() => onNavigate('skill-studio')}
-              className="text-terracotta-600 hover:text-terracotta-700 font-semibold text-xs"
-            >
-              Resume
-            </button>
-          </div>
-
-          <div className="py-2.5 flex items-center justify-between text-xs">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-amber-500" />
-              <div>
-                <span className="font-bold text-charcoal-900">Brand Observation: Liquid Death Cultural Packaging</span>
-                <span className="text-charcoal-400 text-[11px] block">Brand Lab • Explored today</span>
-              </div>
-            </div>
-            <button
-              onClick={() => onNavigate('explore')}
-              className="text-terracotta-600 hover:text-terracotta-700 font-semibold text-xs"
-            >
-              Resume
-            </button>
-          </div>
-
-          <div className="py-2.5 flex items-center justify-between text-xs">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-ink-500" />
-              <div>
-                <span className="font-bold text-charcoal-900">Microeconomics: Cost of Production & Profit Maximization</span>
-                <span className="text-charcoal-400 text-[11px] block">MBA Hub • Slides 1–15 indexed</span>
-              </div>
-            </div>
-            <button
-              onClick={() => onNavigate('mba-hub')}
-              className="text-terracotta-600 hover:text-terracotta-700 font-semibold text-xs"
-            >
-              Resume
-            </button>
-          </div>
         </div>
       </div>
     </div>
