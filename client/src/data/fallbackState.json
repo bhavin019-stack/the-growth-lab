@@ -1,0 +1,1166 @@
+{
+  "profile": {
+    "name": "Bhavin Sharma",
+    "title": "MBA Candidate & Operations/Product Specialist",
+    "tagline": "just do not simply learn, build along with it",
+    "targetRoles": [
+      "Operations Management",
+      "Business Operations Analyst",
+      "Product Management"
+    ],
+    "availableDailyMinutes": 20,
+    "difficulty": "Intermediate",
+    "learningGoals": [
+      "Master Structured Executive Communication",
+      "Operations & Process Excellence (SOPs, Bottleneck Analysis)",
+      "Build 3 Tangible Proof-of-Work Portfolio Projects",
+      "Aces in Term II MBA Subjects"
+    ],
+    "skills": {
+      "Executive Communication": 65,
+      "Process Mapping & SOPs": 75,
+      "Critical Thinking & Decision Making": 70,
+      "Brand Strategy": 60,
+      "Business Analytics": 55,
+      "Execution & Project Mgmt": 80
+    }
+  },
+  "settings": {
+    "geminiApiKey": "",
+    "openaiApiKey": "",
+    "theme": "warm-studio",
+    "notificationsEnabled": true,
+    "outlookCalendar": {
+      "status": "disconnected",
+      "clientId": "",
+      "lastSync": null,
+      "note": "Microsoft Graph calendar integration is optional. You can configure credentials in Settings or manually track your academic deadlines."
+    }
+  },
+  "dailyWorkout": {
+    "date": "2026-11-15",
+    "currentStep": 1,
+    "timeSpentSeconds": 0,
+    "isCompleted": false,
+    "history": []
+  },
+  "quickCaptures": [
+    {
+      "id": "qc-1794734549979",
+      "content": "Automated Test: Bottleneck in dispatch staging",
+      "category": "business_observation",
+      "tags": [
+        "Test",
+        "Ops"
+      ],
+      "targetModule": "Operations Lab",
+      "status": "inbox",
+      "createdAt": "2026-11-15T09:22:29.979Z"
+    },
+    {
+      "id": "qc-1794733451123",
+      "content": "Automated Test: Bottleneck in dispatch staging",
+      "category": "business_observation",
+      "tags": [
+        "Test",
+        "Ops"
+      ],
+      "targetModule": "Operations Lab",
+      "status": "inbox",
+      "createdAt": "2026-11-15T09:04:11.123Z"
+    },
+    {
+      "id": "qc-1",
+      "content": "Bottleneck in warehouse dispatch happens during the manual invoice verification step, not physical packaging.",
+      "category": "business_observation",
+      "tags": [
+        "Operations",
+        "Warehouse",
+        "Bottlenecks"
+      ],
+      "targetModule": "Operations Lab",
+      "status": "inbox",
+      "createdAt": "2026-11-15T04:50:28.236Z"
+    },
+    {
+      "id": "qc-2",
+      "content": "Idea for PM2 project: A unified API gateway monitoring tool for microservices latency tracking.",
+      "category": "project_thought",
+      "tags": [
+        "PM2",
+        "APIs",
+        "TechDebt"
+      ],
+      "targetModule": "Project Incubator",
+      "status": "organized",
+      "createdAt": "2026-11-14T08:50:28.236Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "pm2",
+      "code": "PM-502",
+      "name": "Product Management II (PM2)",
+      "description": "Day-wise PM presentations, APIs and integrations, Frontend/Backend architecture, DBs, Cloud, Tech debt, Build vs Buy.",
+      "color": "#1E3A5F",
+      "accent": "#EBF4FF",
+      "icon": "Layers",
+      "totalSessions": 12,
+      "completedSessions": 4
+    },
+    {
+      "id": "microecon",
+      "code": "ECON-501",
+      "name": "Microeconomics",
+      "description": "Consumer behavior, market mechanism, elasticities, demand estimation, cost of production, profit maximization.",
+      "color": "#1E6F50",
+      "accent": "#E6F4EA",
+      "icon": "TrendingUp",
+      "totalSessions": 10,
+      "completedSessions": 6
+    },
+    {
+      "id": "market-research",
+      "code": "MR-504",
+      "name": "Market Research Methods",
+      "description": "Research design, problem identification, qualitative & quantitative methods, survey design, data interpretation.",
+      "color": "#D97706",
+      "accent": "#FEF3C7",
+      "icon": "Search",
+      "totalSessions": 8,
+      "completedSessions": 3
+    },
+    {
+      "id": "emerging-tech",
+      "code": "TECH-506",
+      "name": "Introduction to Emerging Technologies",
+      "description": "AI architectures, enterprise cloud, blockchain applications, IoT, and digital transformation strategy.",
+      "color": "#0F766E",
+      "accent": "#F0FDFA",
+      "icon": "Cpu",
+      "totalSessions": 8,
+      "completedSessions": 2
+    },
+    {
+      "id": "ui-ux",
+      "code": "UX-508",
+      "name": "Introduction to UI/UX",
+      "description": "Design thinking, information architecture, wireframing, usability heuristics, customer journey mapping.",
+      "color": "#D95D39",
+      "accent": "#FDF4F0",
+      "icon": "Palette",
+      "totalSessions": 8,
+      "completedSessions": 3
+    },
+    {
+      "id": "leadership",
+      "code": "LEAD-510",
+      "name": "Leadership Accelerator",
+      "description": "Team dynamics, high-performance coaching, influence without authority, crisis communication, execution.",
+      "color": "#4A3728",
+      "accent": "#FDF8F3",
+      "icon": "Compass",
+      "totalSessions": 6,
+      "completedSessions": 2
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat-1794732628258-h08t13",
+      "subjectId": "leadership",
+      "filename": "Modules 1_2.pdf",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\leadership accelarator\\Modules 1_2.pdf",
+      "title": "Modules 1_2",
+      "session": "Modules 1 & 2",
+      "fileType": "pdf",
+      "sizeBytes": 4947060,
+      "uploadDate": "2026-11-15T08:34:04.875Z",
+      "hash": "8407cc338aa1054b121399aee96cbd7f576b00501e98bc561532285d3b73f877",
+      "extractedTextPreview": "",
+      "extractedTextFullLength": 0,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    },
+    {
+      "id": "mat-1794732628263-q78v8n",
+      "subjectId": "market-research",
+      "filename": "S1 Introduction to the course.pdf",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\market research\\S1 Introduction to the course.pdf",
+      "title": "S1 Introduction to the course",
+      "session": "Market Research Foundations",
+      "fileType": "pdf",
+      "sizeBytes": 506851,
+      "uploadDate": "2026-11-15T08:37:08.464Z",
+      "hash": "9cfa0812de829305c35b32f95a0deb7bd7736e78d3a778f2ca77d825c6a67fef",
+      "extractedTextPreview": "%PDF-1.7 1 0 obj <</Type/Catalog/Pages 2 0 R/Lang(en-IN) /Metadata 160 0 R/ViewerPreferences 161 0 R>> endobj 2 0 obj <</Type/Pages/Count 26/Kids[ 3 0 R 16 0 R 26 0 R 32 0 R 35 0 R 44 0 R 47 0 R 54 0 R 56 0 R 63 0 R 65 0 R 76 0 R 78 0 R 80 0 R 82 0 R 84 0 R 86 0 R 88 0 R 90 0 R 92 0 R 94 0 R 96 0 R 98 0 R 100 0 R 109 0 R 121 0 R] >> endobj 3 0 obj <</Type/Page/Parent 2 0 R/Resources<</ExtGState<</GS5 5 0 R/GS8 8 0 R>>/Font<</F1 6 0 R/F2 9 0 R/F3 11 0 R/F4 13 0 R>>/XObject<</Image15 15 0 R>>/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 720 540] /Contents 4 0 R/Group<</Type/Group/S/Transparency/CS/DeviceRGB>>/Tabs/S>> endobj 4 0 obj <</Filter/FlateDecode/Length 621>> stream yvy5v0[ b,}ad endstream endobj 5 0 obj <</Type/ExtGState/BM/Normal/ca 1>> endobj 6 0 obj <</Type/Font/Subtype/TrueType/Name/F1/BaseFont/BCDEEE+Georgia-Bold/Encoding/WinAnsiEncoding/FontDescriptor 7 0 R/FirstChar 32/LastChar 116/Widths 126 0 R>> endobj 7 0 obj <</Type/FontDescriptor/FontName/BCDEEE+Georgia-Bold/Flags 32/ItalicAngle 0/Ascent 917/Descent -217/CapHeight 756/AvgWidth 513/MaxWidth 1486/FontWeight 700/XHeight 250/StemV 51/FontBBox[ -190 -217 1295 756] /FontFile2 127 0 R>> endobj 8 0 obj <</Type/ExtGState/BM/Normal/CA 1>> endobj 9 0 obj <</Type/Font/Subtype/TrueType/Name/F2/BaseFont/BCDFEE+Georgia-Italic/Encoding/WinAnsiEncoding/FontDescriptor 10 0 R/FirstChar 32/LastChar 117/Widths 128 0 R>> endobj 10 0 obj <</Type/FontDescriptor/FontName/BCDFEE+Georgia-Italic/Flags 32/ItalicAngle -13/A",
+      "extractedTextFullLength": 10009,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    },
+    {
+      "id": "mat-1794732628282-dfqpme",
+      "subjectId": "market-research",
+      "filename": "S2 Problem Identification.pdf",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\market research\\S2 Problem Identification.pdf",
+      "title": "S2 Problem Identification",
+      "session": "Market Research Foundations",
+      "fileType": "pdf",
+      "sizeBytes": 664267,
+      "uploadDate": "2026-11-15T08:37:11.810Z",
+      "hash": "be6babb1f35bc3e9a4ce07eeb60d6f2cadb1d0c857ecee9d134e418109195129",
+      "extractedTextPreview": "%PDF-1.7 1 0 obj <</Type/Catalog/Pages 2 0 R/Lang(en-IN) /Metadata 212 0 R/ViewerPreferences 213 0 R>> endobj 2 0 obj <</Type/Pages/Count 36/Kids[ 3 0 R 14 0 R 32 0 R 35 0 R 38 0 R 42 0 R 49 0 R 51 0 R 55 0 R 73 0 R 80 0 R 84 0 R 93 0 R 95 0 R 97 0 R 99 0 R 101 0 R 103 0 R 105 0 R 107 0 R 114 0 R 116 0 R 118 0 R 120 0 R 127 0 R 129 0 R 131 0 R 133 0 R 135 0 R 137 0 R 139 0 R 141 0 R 143 0 R 145 0 R 152 0 R 155 0 R] >> endobj 3 0 obj <</Type/Page/Parent 2 0 R/Resources<</ExtGState<</GS5 5 0 R/GS8 8 0 R>>/Font<</F1 6 0 R/F2 9 0 R/F3 11 0 R>>/XObject<</Image13 13 0 R>>/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 720 540] /Contents 4 0 R/Group<</Type/Group/S/Transparency/CS/DeviceRGB>>/Tabs/S>> endobj 4 0 obj <</Filter/FlateDecode/Length 539>> stream &$TC$o zbb&qK endstream endobj 5 0 obj <</Type/ExtGState/BM/Normal/ca 1>> endobj 6 0 obj <</Type/Font/Subtype/TrueType/Name/F1/BaseFont/BCDEEE+Georgia-Bold/Encoding/WinAnsiEncoding/FontDescriptor 7 0 R/FirstChar 32/LastChar 116/Widths 160 0 R>> endobj 7 0 obj <</Type/FontDescriptor/FontName/BCDEEE+Georgia-Bold/Flags 32/ItalicAngle 0/Ascent 917/Descent -217/CapHeight 756/AvgWidth 513/MaxWidth 1486/FontWeight 700/XHeight 250/StemV 51/FontBBox[ -190 -217 1295 756] /FontFile2 161 0 R>> endobj 8 0 obj <</Type/ExtGState/BM/Normal/CA 1>> endobj 9 0 obj <</Type/Font/Subtype/TrueType/Name/F2/BaseFont/BCDFEE+BookmanOldStyle/Encoding/WinAnsiEncoding/FontDescriptor 10 0 R/FirstChar 32/LastChar 120/Widths 162 0 R>> endobj 10 0 obj <<",
+      "extractedTextFullLength": 9131,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    },
+    {
+      "id": "mat-1794732628357-ya242q",
+      "subjectId": "microecon",
+      "filename": "Consumer Behavior1 (003).pptx",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\micro econmics\\Consumer Behavior1 (003).pptx",
+      "title": "Consumer Behavior1 (003)",
+      "session": "Microeconomic Principles",
+      "fileType": "pptx",
+      "sizeBytes": 521107,
+      "uploadDate": "2026-11-15T08:35:43.747Z",
+      "hash": "bb5c035bd2504651e691ca02bc10daa06928616b2e15767341413a5c37cd746b",
+      "extractedTextPreview": "[Slide 1]: Consumer Behaviour\n\n[Slide 2]: Consumer Behaviour - Applications How do you generate information to design a new policy or product or service? How do consumers with limited income decide what to buy? How do consumers allocate income to the purchase different goods? How are consumer preferences used to determine demand? style.visibility style.visibility style.visibility style.visibility\n\n[Slide 3]: Consumer Behaviour Three components of consumer behaviour Consumer Preferences Budget Constraints Given preferences and limited incomes, what amount and type of goods will be purchased?\n\n[Slide 4]: Consumer Preference How do you decide how much Litchi and Grapes you would like to buy for the week? Derive utilities (usefulness) by consuming them We can approximate the extent of usefulness by giving some numbers to the quantity consumed\n\n[Slide 5]: Utility 0 11 17 21 24 25 Qty of Litchi 0 1 2 3 4 5 A’s Utilities from consumption of Litchi Litchi\n\n[Slide 6]: 5 16 4 15 3 13 2 10 1 6 0 0 A’s Utilities from Grapes Grapes\n\n[Slide 8]: 5 16 27 33 37 40 41 4 15 26 32 36 39 40 3 13 24 30 34 37 38 2 10 20 27 31 34 35 1 6 17 23 27 30 31 0 0 11 17 21 24 25 0 1 2 3 4 5 A’s Utilities from Grapes and Litchi Grapes Litchi\n\n[Slide 11]: style.visibility ppt_x ppt_y\n\n[Slide 12]: Indifference Curves Curves representing all combinations of market baskets that provide consumer with the same level of satisfaction Indifferences map: graph containing a set of indifference curves showing the market ",
+      "extractedTextFullLength": 19489,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    },
+    {
+      "id": "mat-1794732628394-2kni6j",
+      "subjectId": "microecon",
+      "filename": "cost of production.pptx",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\micro econmics\\cost of production.pptx",
+      "title": "cost of production",
+      "session": "Microeconomic Principles",
+      "fileType": "pptx",
+      "sizeBytes": 992375,
+      "uploadDate": "2026-11-15T08:35:47.098Z",
+      "hash": "2d73e392cd0793b80844415208a1aad5d4f9e3fd1b12c57802473db7aa912c3d",
+      "extractedTextPreview": "[Slide 1]: Cost of Production\n\n[Slide 2]: Akshyakalpa Case What information would be useful to arrive at pricing at farm level and at consumer level? What is the cost of producing a litre of milk? What are the different items of costs? How do we categorize these costs?\n\n[Slide 3]: Decisions Related to Cost How to select cost minimizing output level? How to select a level of automation? What factors affect cost in the long run? How do you measure economies of scale? How do you find break-even quantities?\n\n[Slide 4]: Measuring Cost: Which Costs Matter? Some costs vary with output, while some remain the same no matter the amount of output Total cost can be categorized into: Fixed Cost Does not vary with the level of output Variable Cost Cost that varies as output varies style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility\n\n[Slide 5]: Fixed and Variable Costs Total output is a function of variable inputs and fixed inputs Therefore, the total cost of production equals the fixed cost (the cost of the fixed inputs) plus the variable cost (the cost of the variable inputs), or… style.visibility style.visibility\n\n[Slide 6]: Fixed and Variable Costs Which costs are variable and which are fixed depends on the time horizon Short time horizon – most costs are fixed Long time horizon – many costs become variable In determining how changes in production will affect costs, must consider if fixed or variable costs are affected.\n\n[Slide 7]: Produ",
+      "extractedTextFullLength": 18272,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    },
+    {
+      "id": "mat-1794732628426-xttjxq",
+      "subjectId": "microecon",
+      "filename": "Deand Estimation1.pptx",
+      "originalPath": "C:\\Users\\Admin\\OneDrive\\Documents\\the growth lab\\micro econmics\\Deand Estimation1.pptx",
+      "title": "Deand Estimation1",
+      "session": "Microeconomic Principles",
+      "fileType": "pptx",
+      "sizeBytes": 907606,
+      "uploadDate": "2026-11-15T08:35:51.128Z",
+      "hash": "823a4a58c5f7e6bd9a3eadd9e7c2bfda924ebd17fce1c4391c9cea86b5d4a2e6",
+      "extractedTextPreview": "[Slide 1]: Demand Estimation\n\n[Slide 2]: Problem When the price of vegetable fiber is Rs 1200/kg the demand was 16,000 kg and supply was 8000 kg. As price increased to Rs 1800/kg the demand decreased to 4000 kg and supply increased to 12000 kg Find out the equilibrium price and quantity.\n\n[Slide 4]: Source: R. F. Brooker\n\n[Slide 5]: Source: R. F. Brooker\n\n[Slide 6]: Introduction Simple Linear Regression Model: 𝑦 = 𝛽 0 + 𝛽 1 𝑥 + 𝑢\n\n[Slide 7]: Source: R. F. Brooker\n\n[Slide 8]: Source: R. F. Brooker Regression Analysis Regression Line: Line of Best Fit Regression Line: Minimizes the sum of the squared vertical deviations ( u i ) of each point from the regression line. Ordinary Least Squares (OLS) Method\n\n[Slide 9]: Source: R. F. Brooker Scatter Diagram Regression Analysis style.visibility ppt_x ppt_y style.visibility ppt_x ppt_y style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility style.visibility\n\n[Slide 10]: Empirical Estimation of Demand The Statistical Approach to Demand Estimation Properly applied, the statistical approach to demand estimation can enable one to sort out the effects of variables on the quantity demanded of a product “Least-squares” regression is one approach style.visibility style.visibility style.visibility\n\n[Slide 11]: Assumptions Linear in Parameter 𝑦 = 𝛽 0 + 𝛽 1 𝑥 + 𝑢 Sample Variation in Explanatory Variable Zero Mean 𝐸 𝑢 =0 Explanatory variabl",
+      "extractedTextFullLength": 8945,
+      "isBookmarked": false,
+      "studyStatus": "in_progress",
+      "notes": []
+    }
+  ],
+  "academicNotes": [],
+  "quizzes": [],
+  "communicationAttempts": [
+    {
+      "id": "ca-1794734549985",
+      "prompt": "Explain sunk cost fallacy",
+      "durationSeconds": 90,
+      "transcript": "Basically, sunk costs have already been spent and cannot be recovered by any future decision.",
+      "audioData": null,
+      "clarityScore": 65,
+      "feedback": {
+        "fillerWords": [
+          "basically"
+        ],
+        "strengths": [
+          "Clear central thesis delivered without hesitation.",
+          "Relevant business framing maintained throughout."
+        ],
+        "improvements": [
+          "Reduce filler word usage (basically). Practice pausing silently for 1 second instead of voicing filler sounds."
+        ]
+      },
+      "category": "Explaining Business Concepts",
+      "createdAt": "2026-11-15T09:22:29.985Z"
+    },
+    {
+      "id": "ca-1794733451133",
+      "prompt": "Explain sunk cost fallacy",
+      "durationSeconds": 90,
+      "transcript": "Basically, sunk costs have already been spent and cannot be recovered by any future decision.",
+      "audioData": null,
+      "clarityScore": 65,
+      "feedback": {
+        "fillerWords": [
+          "basically"
+        ],
+        "strengths": [
+          "Clear central thesis delivered without hesitation.",
+          "Relevant business framing maintained throughout."
+        ],
+        "improvements": [
+          "Reduce filler word usage (basically). Practice pausing silently for 1 second instead of voicing filler sounds."
+        ]
+      },
+      "category": "Explaining Business Concepts",
+      "createdAt": "2026-11-15T09:04:11.133Z"
+    },
+    {
+      "id": "ca-1",
+      "prompt": "Explain the difference between Fixed Costs and Sunk Costs to a non-finance stakeholder.",
+      "durationSeconds": 145,
+      "transcript": "Fixed costs are expenses that do not change with the level of output in the short run, like office rent. Sunk costs are costs that have already been incurred and cannot be recovered by any future decision. Basically, when making future decisions, sunk costs should be ignored, whereas fixed costs can still be negotiated or avoided when planning long-term contracts.",
+      "clarityScore": 88,
+      "feedback": {
+        "fillerWords": [
+          "basically"
+        ],
+        "strengths": [
+          "Clean distinction between unrecoverable past costs and committed current overhead.",
+          "Used an accessible real-world example (rent)."
+        ],
+        "improvements": [
+          "Avoid opening with definition-first; try opening with a decision dilemma (e.g. 'Should we cancel a project?') before introducing the terminology."
+        ]
+      },
+      "category": "Explaining Business Concepts",
+      "createdAt": "2026-11-13T08:50:28.236Z"
+    }
+  ],
+  "thoughtBuilderEntries": [
+    {
+      "id": "tb-1",
+      "title": "Standardizing Warehouse Handoffs",
+      "rawInput": "I noticed the fulfillment team blames customer service for missing notes and CS blames the drivers. We need a clear checklist so whoever accepts a parcel signs off. If it's late we should know exactly whose queue it sat in.",
+      "framework": "PRE",
+      "structured": {
+        "point": "Implement a digital chain-of-custody checklist for all warehouse order handoffs.",
+        "reason": "Lack of explicit queue ownership causes cross-department blame and adds an average of 4.5 hours of unlogged latency per order.",
+        "example": "In Tuesday's delayed electronics batch, orders sat uninspected for three hours because dispatch assumed customer service had not verified payment.",
+        "conclusion": "By establishing timestamped digital sign-offs, we eliminate ambiguities and protect customer delivery SLAs."
+      },
+      "createdAt": "2026-11-14T08:50:28.236Z"
+    }
+  ],
+  "skillTracks": [
+    {
+      "id": "track-consumer",
+      "title": "Consumer Understanding",
+      "category": "Consumer Behavior & Insights",
+      "progress": 60,
+      "modules": [
+        {
+          "id": "m-c1",
+          "title": "Uncovering Latent Needs vs Stated Desires",
+          "completed": true
+        },
+        {
+          "id": "m-c2",
+          "title": "Cognitive Biases in Purchasing Decisions",
+          "completed": true
+        },
+        {
+          "id": "m-c3",
+          "title": "Jobs-to-Be-Done (JTBD) Framework in Action",
+          "completed": false
+        },
+        {
+          "id": "m-c4",
+          "title": "Interpreting Qualitative Research Without Confirmation Bias",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "track-brand",
+      "title": "Brand Strategy",
+      "category": "Positioning & Differentiation",
+      "progress": 45,
+      "modules": [
+        {
+          "id": "m-b1",
+          "title": "Distinctive Brand Assets (Sharp vs Kotler debate)",
+          "completed": true
+        },
+        {
+          "id": "m-b2",
+          "title": "Positioning Statements that Actually Guide Trade-offs",
+          "completed": false
+        },
+        {
+          "id": "m-b3",
+          "title": "Brand Architecture: House of Brands vs Branded House",
+          "completed": false
+        },
+        {
+          "id": "m-b4",
+          "title": "Measuring Brand Equity & Mental Availability",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "track-business",
+      "title": "Business Knowledge",
+      "category": "Economics & Revenue Models",
+      "progress": 75,
+      "modules": [
+        {
+          "id": "m-bk1",
+          "title": "Unit Economics: CAC, LTV, Contribution Margin",
+          "completed": true
+        },
+        {
+          "id": "m-bk2",
+          "title": "Dissecting Platform & Marketplace Flywheels",
+          "completed": true
+        },
+        {
+          "id": "m-bk3",
+          "title": "Cost Structure Analysis: Fixed, Variable, Marginal",
+          "completed": true
+        },
+        {
+          "id": "m-bk4",
+          "title": "Working Capital & Cash Conversion Cycles",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "track-analytical",
+      "title": "Analytical Thinking",
+      "category": "Data & Critical Judgment",
+      "progress": 50,
+      "modules": [
+        {
+          "id": "m-at1",
+          "title": "Separating Correlation from Causation in Business KPIs",
+          "completed": true
+        },
+        {
+          "id": "m-at2",
+          "title": "First-Principles Decomposition of Complex Systems",
+          "completed": true
+        },
+        {
+          "id": "m-at3",
+          "title": "Scenario Modeling & Sensitivity Analysis",
+          "completed": false
+        },
+        {
+          "id": "m-at4",
+          "title": "Evaluating Evidence Quality & Challenging Assumptions",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "track-comm",
+      "title": "Communication and Storytelling",
+      "category": "Executive Presentations & Persuasion",
+      "progress": 70,
+      "modules": [
+        {
+          "id": "m-cs1",
+          "title": "The Pyramid Principle: Lead with the Answer",
+          "completed": true
+        },
+        {
+          "id": "m-cs2",
+          "title": "Structuring High-Stakes 2-Minute Executive Updates",
+          "completed": true
+        },
+        {
+          "id": "m-cs3",
+          "title": "Translating Technical Details into Business Impact",
+          "completed": true
+        },
+        {
+          "id": "m-cs4",
+          "title": "Handling Tough Questions & Pushback in the Boardroom",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "track-execution",
+      "title": "Execution and Problem Solving",
+      "category": "Operations & Turnaround",
+      "progress": 65,
+      "modules": [
+        {
+          "id": "m-ex1",
+          "title": "Bottleneck Theory (Goldratt's Five Focusing Steps)",
+          "completed": true
+        },
+        {
+          "id": "m-ex2",
+          "title": "Drafting Bulletproof Standard Operating Procedures (SOPs)",
+          "completed": true
+        },
+        {
+          "id": "m-ex3",
+          "title": "Root Cause Analysis: 5 Whys & Fishbone Execution",
+          "completed": true
+        },
+        {
+          "id": "m-ex4",
+          "title": "Change Management: Overcoming Frontline Inertia",
+          "completed": false
+        }
+      ]
+    }
+  ],
+  "brandLabObservations": [
+    {
+      "id": "bl-1",
+      "brandName": "Liquid Death",
+      "category": "Beverage / FMCG",
+      "targetAudience": "Gen Z & Millennials seeking anti-corporate, irreverent healthy lifestyle choices (skaters, punks, non-drinkers at concerts).",
+      "positioning": "Mountain water branded like heavy metal beer. Murder your thirst.",
+      "consumerBehavior": "Consumers treat water cans as social identity badges rather than mere hydration commodities.",
+      "competitorComparison": "Dasani/Aquafina sell generic purity; Liquid Death sells humor, sustainability (aluminum cans), and rebellious belonging.",
+      "rationale": "They decoupled product utility (water) from cultural packaging, transforming a low-margin commodity into a viral high-margin lifestyle brand.",
+      "aiFeedback": "Strong observation. Notice how their aluminum can format also solves a genuine ESG concern (single-use plastic) while doubling as an edgy packaging gimmick.",
+      "isTodayObservation": true,
+      "createdAt": "2026-11-15T08:50:28.236Z"
+    }
+  ],
+  "operationsLab": {
+    "processMaps": [
+      {
+        "id": "pm-1",
+        "name": "Customer Refund & Return Resolution Flow",
+        "department": "Customer Operations & Logistics",
+        "description": "End-to-end journey from return request to replacement/reimbursement dispatch.",
+        "steps": [
+          {
+            "id": "s1",
+            "label": "Customer Files Return Request in App",
+            "type": "start",
+            "owner": "Customer / App",
+            "inputs": "Order ID, Reason",
+            "outputs": "RMA Ticket #",
+            "isBottleneck": false
+          },
+          {
+            "id": "s2",
+            "label": "Automated Eligibility Check (<14 days)",
+            "type": "decision",
+            "owner": "ERP Rules Engine",
+            "inputs": "RMA Ticket",
+            "outputs": "Approved / Rejected",
+            "isBottleneck": false
+          },
+          {
+            "id": "s3",
+            "label": "Physical Item Inspection at Hub",
+            "type": "step",
+            "owner": "Warehouse QA Lead",
+            "inputs": "Received Package",
+            "outputs": "Condition Tag (Grade A/B/Defect)",
+            "isBottleneck": true
+          },
+          {
+            "id": "s4",
+            "label": "Finance Approval & Refund Release",
+            "type": "step",
+            "owner": "Finance Specialist",
+            "inputs": "Inspection Signoff",
+            "outputs": "Bank Credit Gateway Hook",
+            "isBottleneck": false
+          },
+          {
+            "id": "s5",
+            "label": "Customer Confirmation Email & Survey",
+            "type": "end",
+            "owner": "CRM System",
+            "inputs": "Payment Reference",
+            "outputs": "Ticket Closed",
+            "isBottleneck": false
+          }
+        ],
+        "bottleneckNotes": "Inspection at Hub currently has a 36-hour queue due to manual barcode verification.",
+        "createdAt": "2026-11-12T08:50:28.236Z"
+      }
+    ],
+    "sops": [
+      {
+        "id": "sop-1794734549993",
+        "processName": "Test Warehouse Intake Protocol",
+        "objective": "Validate all incoming shipments within 30 minutes",
+        "scope": "Warehouse Receiving Team",
+        "owner": "Intake Lead",
+        "inputs": [
+          "Bill of Lading",
+          "Physical pallets"
+        ],
+        "steps": [
+          "Scan barcode",
+          "Verify condition tag",
+          "Update ERP stock level"
+        ],
+        "outputs": [
+          "Receipt signed",
+          "Inventory ledger updated"
+        ],
+        "qualityCheckpoints": [
+          "Zero damage unlogged"
+        ],
+        "escalation": "Page duty manager if discrepancies > 5%",
+        "exceptions": "Cold-chain items take priority",
+        "status": "active",
+        "updatedAt": "2026-11-15T09:22:29.993Z"
+      },
+      {
+        "id": "sop-1794733451142",
+        "processName": "Test Warehouse Intake Protocol",
+        "objective": "Validate all incoming shipments within 30 minutes",
+        "scope": "Warehouse Receiving Team",
+        "owner": "Intake Lead",
+        "inputs": [
+          "Bill of Lading",
+          "Physical pallets"
+        ],
+        "steps": [
+          "Scan barcode",
+          "Verify condition tag",
+          "Update ERP stock level"
+        ],
+        "outputs": [
+          "Receipt signed",
+          "Inventory ledger updated"
+        ],
+        "qualityCheckpoints": [
+          "Zero damage unlogged"
+        ],
+        "escalation": "Page duty manager if discrepancies > 5%",
+        "exceptions": "Cold-chain items take priority",
+        "status": "active",
+        "updatedAt": "2026-11-15T09:04:11.142Z"
+      },
+      {
+        "id": "sop-1",
+        "processName": "Critical Customer Escalation Handling (P1 Incidents)",
+        "objective": "To resolve high-severity customer service disruptions within 120 minutes with zero communication lapses.",
+        "scope": "Applies to Tier 2 Support, Operations Duty Managers, and Product Engineering leads.",
+        "owner": "Operations Duty Manager",
+        "inputs": [
+          "P1 Incident Trigger",
+          "Customer Account Tier",
+          "Diagnostic Log"
+        ],
+        "steps": [
+          "Acknowledge ticket within 5 minutes and assign dedicated Incident Commander.",
+          "Post internal war-room link in Slack #ops-critical within 10 minutes.",
+          "Dispatch proactive 30-minute status notification to customer VIP contact.",
+          "Implement verified hotfix or rollback protocol.",
+          "Conduct post-mortem review within 24 hours of incident closure."
+        ],
+        "outputs": [
+          "Resolved Incident State",
+          "Published RCA Document",
+          "Updated Runbook Entry"
+        ],
+        "qualityCheckpoints": [
+          "Mean Time to Detect (MTTD) < 5 mins",
+          "Mean Time to Acknowledge < 10 mins",
+          "Customer NPS score post-fix > 8"
+        ],
+        "escalation": "If uncontained at 45 minutes, immediately page VP of Operations and Lead Architect.",
+        "exceptions": "Third-party cloud infrastructure outages bypass engineering hotfix and activate Disaster Recovery status page.",
+        "status": "active",
+        "createdAt": "2026-11-10T08:50:28.236Z"
+      }
+    ],
+    "simulations": [
+      {
+        "id": "sim-1",
+        "title": "The E-Commerce Black Friday Dispatch Crisis",
+        "context": "Peak season volume surged by 220%. Orders are stacking up at the packing station. Pickers are waiting 18 minutes per cart because packing benches are overflowing with unlabelled boxes. 3PL couriers are arriving, waiting 40 minutes, and leaving half-loaded.",
+        "difficulty": "Challenging",
+        "kpis": [
+          "Order Fulfillment Cycle Time",
+          "Courier Turnaround Time (TAT)",
+          "Order Defect Rate (ODR)"
+        ],
+        "frameworkRecommended": "Theory of Constraints (Goldratt) + 5 Whys",
+        "resolved": false
+      },
+      {
+        "id": "sim-2",
+        "title": "SaaS Enterprise Onboarding Latency",
+        "context": "New enterprise accounts take 64 days to go live against an SLA of 30 days. Client sponsors are complaining of silence between contract signing and initial kick-off call. Security questionnaire reviews take 3 weeks alone.",
+        "difficulty": "Intermediate",
+        "kpis": [
+          "Time to First Value (TTFV)",
+          "CSAT Onboarding",
+          "Contract Activation Rate"
+        ],
+        "frameworkRecommended": "Value Stream Mapping & Handoff Optimization",
+        "resolved": true
+      }
+    ]
+  },
+  "communicationIntelligence": {
+    "patterns": [
+      {
+        "pattern": "Prefers starting with definitions rather than user dilemma",
+        "occurrences": 4,
+        "advice": "Open with the stakes or decision before defining terms."
+      },
+      {
+        "pattern": "Filler word: 'basically' used when transitioning to conclusions",
+        "occurrences": 9,
+        "advice": "Replace with a one-second deliberate pause."
+      },
+      {
+        "pattern": "Strong use of real-world business analogies",
+        "occurrences": 8,
+        "advice": "Keep anchoring explanations in tangible case studies."
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "voc-1",
+        "originalSentence": "We need to fix the big problem with our warehouse people.",
+        "intendedMeaning": "Address operational friction and lack of throughput accountability.",
+        "betterWord": "Remediate systemic operational bottlenecks",
+        "improvedSentence": "We must remediate the operational bottlenecks currently constricting warehouse throughput.",
+        "category": "Operations",
+        "mastery": "Mastered",
+        "reviewDate": "2026-11-15T08:50:28.236Z"
+      },
+      {
+        "id": "voc-2",
+        "originalSentence": "The market doesn't really care about this feature anymore.",
+        "intendedMeaning": "The feature has become a baseline table-stake rather than a true differentiator.",
+        "betterWord": "Commoditized / Table-stakes",
+        "improvedSentence": "This capability has transformed into an industry table-stake rather than a distinct competitive advantage.",
+        "category": "Brand & Strategy",
+        "mastery": "Learning",
+        "reviewDate": "2026-11-15T08:50:28.236Z"
+      }
+    ]
+  },
+  "decisionRoom": [
+    {
+      "id": "dr-1",
+      "title": "Customer Acquisition vs Customer Retention in a Downturn",
+      "scenario": "Your B2B SaaS company faces a 25% marketing budget cut. Sales wants to keep pouring money into top-of-funnel lead generation to replace churned customers. Customer Success argues that increasing retention by 5% will yield 3x more lifetime profit and protect gross margins.",
+      "options": [
+        {
+          "id": "opt-1",
+          "label": "Option A: Aggressive Acquisition",
+          "description": "Allocate 70% of budget to customer acquisition to chase top-line revenue."
+        },
+        {
+          "id": "opt-2",
+          "label": "Option B: Retention Moat",
+          "description": "Allocate 70% to customer success, onboarding, and proactive feature adoption."
+        },
+        {
+          "id": "opt-3",
+          "label": "Option C: Account Expansion",
+          "description": "Double down on upsells and cross-sells to top 20% highest-margin accounts."
+        }
+      ],
+      "userDecision": {
+        "decision": "Option B: Retention Moat",
+        "rationale": "Protecting retention creates higher LTV during macroeconomic contraction.",
+        "evidence": "Customer retention yields 3x higher gross margin",
+        "assumptions": "Existing customers have high willingness to expand",
+        "tradeOffs": "Slower top-line new logo acquisition",
+        "submittedAt": "2026-11-15T09:22:29.998Z"
+      }
+    },
+    {
+      "id": "dr-2",
+      "title": "Launch Now with Minor Glitches vs Delay Product Release by 3 Weeks",
+      "scenario": "Sprint deadline is tomorrow. The core workflow functions, but 3 edge cases cause slow page refreshes for 2% of users. The sales team has already announced the launch date to 50 VIP clients.",
+      "options": [
+        {
+          "id": "opt-1",
+          "label": "Release on Schedule",
+          "description": "Launch with proactive advisory notes and commit to hotfix within 72 hours."
+        },
+        {
+          "id": "opt-2",
+          "label": "Delay Launch by 3 Weeks",
+          "description": "Protect customer experience and guarantee bug-free debut."
+        }
+      ],
+      "userDecision": null
+    }
+  ],
+  "decisionJournal": [
+    {
+      "id": "dj-1",
+      "title": "Vendor Selection: Custom Internal Tool vs Third-Party SaaS",
+      "situation": "Needed an internal ticket-routing system for the 25-person support team.",
+      "optionsConsidered": [
+        "Build custom in-house dashboard (6 weeks dev time)",
+        "Buy Zendesk/Freshdesk off the shelf ($49/seat/mo)"
+      ],
+      "finalDecision": "Bought off-the-shelf SaaS with 1-year contract.",
+      "expectedOutcome": "Immediate deployment within 3 days without diverting our two full-stack developers from revenue-generating core product.",
+      "actualOutcome": "Deployed in 4 days. Saved ~240 engineering hours.",
+      "lessonsLearned": "Build vs Buy must factor in ongoing maintenance debt, not just initial build time.",
+      "tags": [
+        "Build vs Buy",
+        "Operations",
+        "PM2"
+      ],
+      "createdAt": "2026-11-07T00:50:28.236Z"
+    }
+  ],
+  "curatedLibrary": [
+    {
+      "id": "cl-1",
+      "title": "The 3 Immutable Rules of Brand Positioning",
+      "author": "Mark Ritson",
+      "source": "Marketing Week",
+      "type": "article",
+      "url": "https://www.marketingweek.com/mark-ritson-positioning/",
+      "category": "Brand Strategy",
+      "readTimeMinutes": 8,
+      "description": "Why most positioning statements fail: they try to be all things to all consumers instead of choosing what NOT to do.",
+      "completed": true,
+      "saved": true
+    },
+    {
+      "id": "cl-2",
+      "title": "How Domino's Re-engineered its 30-Minute Supply Chain",
+      "author": "Think School",
+      "source": "Think School (YouTube)",
+      "type": "video",
+      "url": "https://www.youtube.com/@TheThinkSchool",
+      "category": "Operations & Process",
+      "readTimeMinutes": 16,
+      "description": "A masterclass in operational layout, standardized ingredient prep, and hub-and-spoke distribution optimization.",
+      "completed": false,
+      "saved": true
+    },
+    {
+      "id": "cl-3",
+      "title": "What Is Strategy? The Seminal Foundations",
+      "author": "Michael E. Porter",
+      "source": "Harvard Business Review",
+      "type": "article",
+      "url": "https://hbr.org/1996/11/what-is-strategy",
+      "category": "Business Knowledge",
+      "readTimeMinutes": 20,
+      "description": "Operational effectiveness is necessary but NOT strategy. Strategy is creating a unique and valuable position involving a different set of activities.",
+      "completed": true,
+      "saved": false
+    },
+    {
+      "id": "cl-4",
+      "title": "Liquid Death's $1.4B Disruptive CPG Playbook",
+      "author": "The Branding Journal",
+      "source": "The Branding Journal",
+      "type": "article",
+      "url": "https://www.thebrandingjournal.com",
+      "category": "Consumer Understanding",
+      "readTimeMinutes": 10,
+      "description": "How irreverent humor, distinctive physical assets, and anti-plastic environmentalism won Gen-Z mindshare.",
+      "completed": false,
+      "saved": true
+    }
+  ],
+  "ideaCanvas": {
+    "cards": [
+      {
+        "id": "ic-1",
+        "x": 80,
+        "y": 100,
+        "title": "SLA Drift in B2B Customer Support",
+        "content": "When average handling time is rewarded, agents rush calls and First Contact Resolution plunges. The two metrics must be paired.",
+        "color": "#FEF3C7",
+        "category": "Operations"
+      },
+      {
+        "id": "ic-2",
+        "x": 420,
+        "y": 120,
+        "title": "Mental Availability vs Brand Love",
+        "content": "Consumers don't obsess over brands; they recall the easiest distinctive cue when buying under cognitive pressure (Sharp).",
+        "color": "#FDF4F0",
+        "category": "Brand"
+      },
+      {
+        "id": "ic-3",
+        "x": 260,
+        "y": 340,
+        "title": "Synthesis: The Operations of Brand Promises",
+        "content": "A brand promise is marketing debt unless the operational workflow is engineered to deliver it consistently.",
+        "color": "#E6F4EA",
+        "category": "Synthesis"
+      }
+    ],
+    "connections": [
+      {
+        "from": "ic-1",
+        "to": "ic-3"
+      },
+      {
+        "from": "ic-2",
+        "to": "ic-3"
+      }
+    ]
+  },
+  "linkedInDrafts": [
+    {
+      "id": "li-1",
+      "title": "Why Operational Excellence Is the Real Brand Moat",
+      "content": "Most business schools teach Marketing and Operations in separate silos.\n\nMarketing makes the promise. Operations is left to fulfill it.\n\nHere is the issue: When marketing promises 'under 30 minutes delivery' or 'frictionless returns', every bottleneck on the warehouse floor turns that campaign into brand erosion.\n\nIn our latest case review on supply chain handoffs:\n→ Unassigned ticket queues caused 40% of customer latency.\n→ Frontline staff were optimizing for AHT instead of First Contact Resolution.\n\nBefore spending another dollar on performance ads, ask:\nDoes your operational workflow actually support the promise you are making?\n\n#Operations #ProductManagement #Leadership #TheGrowthLab",
+      "sourceNote": "Synthesized from Liquid Death case & Warehouse Handoffs observation",
+      "status": "ready_to_share",
+      "createdAt": "2026-11-15T08:50:28.236Z"
+    }
+  ],
+  "careerCompass": {
+    "targetRoles": [
+      {
+        "id": "cr-ops",
+        "title": "Operations Management / Business Operations Analyst",
+        "matchScore": 82,
+        "requiredSkills": [
+          "Process Mapping & SOPs",
+          "Root Cause Analysis (5 Whys/Fishbone)",
+          "SLA & TAT Optimization",
+          "Cross-Functional Execution",
+          "Excel/Power BI"
+        ],
+        "userStrengths": [
+          "Process Mapping & SOPs",
+          "Root Cause Analysis (5 Whys/Fishbone)",
+          "Cross-Functional Execution"
+        ],
+        "gaps": [
+          "Advanced Excel/Power BI Dashboards",
+          "Statistical Process Control"
+        ],
+        "recommendedTracks": [
+          "Operations Lab",
+          "Business Analytics Practice Lab"
+        ]
+      },
+      {
+        "id": "cr-pm",
+        "title": "Product Manager (Technical & B2B)",
+        "matchScore": 78,
+        "requiredSkills": [
+          "API Architecture & Data Modeling",
+          "PRD Writing & User Stories",
+          "Prioritization Frameworks (RICE)",
+          "Build vs Buy Analysis"
+        ],
+        "userStrengths": [
+          "Prioritization Frameworks (RICE)",
+          "Build vs Buy Analysis"
+        ],
+        "gaps": [
+          "System Architecture & Tech Debt Evaluation",
+          "SQL Querying"
+        ],
+        "recommendedTracks": [
+          "PM2 Academic Hub",
+          "Business Analytics Practice Lab"
+        ]
+      },
+      {
+        "id": "cr-brand",
+        "title": "Brand Strategist / Consumer Insights Lead",
+        "matchScore": 70,
+        "requiredSkills": [
+          "Consumer Segmentation",
+          "Distinctive Asset Strategy",
+          "Qualitative Research Design",
+          "Competitive Teardowns"
+        ],
+        "userStrengths": [
+          "Competitive Teardowns",
+          "Distinctive Asset Strategy"
+        ],
+        "gaps": [
+          "Quantitative Conjoint Analysis",
+          "Brand Health Tracking Studies"
+        ],
+        "recommendedTracks": [
+          "Brand Lab",
+          "Market Research Methods"
+        ]
+      }
+    ],
+    "resumeSummary": "MBA Candidate with background in operational workflows, structured business analysis, and cross-functional team coordination."
+  },
+  "interviewStories": [
+    {
+      "id": "is-1",
+      "title": "Resolving Cross-Team Logistics Latency During Peak Demand",
+      "framework": "STAR",
+      "competency": "Operations & Crisis Execution",
+      "roleCategory": "Operations Management",
+      "situation": "During our seasonal peak, customer delivery complaints spiked by 45% due to bottlenecks at the regional distribution center.",
+      "task": "I was assigned to identify the root cause within 48 hours and restore our 98% on-time fulfillment SLA without increasing temporary headcount.",
+      "action": "I mapped the end-to-end fulfillment stream on-site. I discovered that packers were manually waiting for printed invoices from a single shared printer. I reorganized the flow into cell-based stations with localized label printers and introduced a standardized 4-point handover checklist.",
+      "result": "Turnaround time per package dropped from 18 minutes to 9 minutes. On-time delivery returned to 99.2% within 5 days, saving an estimated $35,000 in SLA penalty rebates.",
+      "aiFollowUp": "How did you manage pushback from older warehouse staff who resisted moving away from the central printer desk?",
+      "conciseVersion": "Faced with a 45% spike in fulfillment complaints during peak season, I mapped the packing workflow, identified a single printer bottleneck, and redesigned cell-based stations with local label printers—cutting packaging cycle time by 50% and restoring our 99% SLA.",
+      "createdAt": "2026-11-11T08:50:28.236Z"
+    }
+  ],
+  "proofOfWorkProjects": [
+    {
+      "id": "pow-1",
+      "title": "End-to-End Fulfillment Cycle Time Reduction by 50%",
+      "category": "Operations & Process Improvement",
+      "problemStatement": "Regional distribution hub suffered an unmitigated 45% spike in SLA delivery breaches caused by unmapped physical handoff friction.",
+      "background": "Warehouse dispatched 25,000 units weekly but suffered from an antiquated centralized paperwork flow dating back to 2018.",
+      "objective": "Eliminate packing queue latency and recover 99%+ on-time customer delivery SLA within 7 days.",
+      "researchAndAnalysis": "Conducted Time-and-Motion study across 40 order pick cycles. Identified that 38% of total cycle time was non-value-add transit between packing benches and the solitary central paperwork printer.",
+      "proposedSolution": "Decentralized packing cells with dedicated thermal label printers, automated invoice digital sync, and a 4-step Standard Operating Procedure (SOP).",
+      "implementation": "Piloted in Zone B for 24 hours. Iterated packing ergonomics. Rolled out to all 12 zones with a 30-minute frontline training session.",
+      "impact": "Turnaround time cut from 18 min to 9 min per parcel. Zero SLA penalty fees incurred. 100% team adoption.",
+      "skillsDemonstrated": [
+        "Process Mapping",
+        "Value Stream Mapping",
+        "Standard Operating Procedures (SOP)",
+        "Frontline Change Management"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-11-10T08:50:28.236Z"
+    }
+  ],
+  "projectIncubator": [
+    {
+      "id": "pi-1",
+      "title": "Digital Chain-of-Custody for Third-Party Logistics Handover",
+      "origin": "Brand & Operations Lab Observation",
+      "problem": "Courier drivers and warehouse staff dispute package damage liability, causing delayed customer claims.",
+      "targetAudience": "3PL Logistics Managers and Dispatch Coordinators",
+      "objective": "Create a lightweight mobile-web QR verification prototype that logs time, condition, and digital signature in <10 seconds.",
+      "assumptions": [
+        "Drivers will carry smartphones with active data.",
+        "Camera scanning is faster than paper clipboards."
+      ],
+      "milestones": [
+        {
+          "title": "Process Map of Current Handover",
+          "completed": true
+        },
+        {
+          "title": "Define Data Schema & API Contract",
+          "completed": true
+        },
+        {
+          "title": "Build Interactive Prototype",
+          "completed": false
+        },
+        {
+          "title": "Test with Frontline Team",
+          "completed": false
+        }
+      ],
+      "status": "in_progress",
+      "createdAt": "2026-11-13T08:50:28.236Z"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "as-1",
+      "title": "Microeconomics: Cost Curves & Profit Maximization Problem Set",
+      "subjectId": "microecon",
+      "dueDate": "2026-11-18",
+      "priority": "must",
+      "status": "pending",
+      "estimatedMinutes": 90,
+      "linkedMaterial": "cost of production.pptx"
+    },
+    {
+      "id": "as-2",
+      "title": "PM2: System Architecture Diagram & Technical Debt Audit",
+      "subjectId": "pm2",
+      "dueDate": "2026-11-20",
+      "priority": "must",
+      "status": "pending",
+      "estimatedMinutes": 120,
+      "linkedMaterial": "Session 4 APIs and Microservices"
+    },
+    {
+      "id": "as-3",
+      "title": "Market Research: Qualitative Interview Protocol Design",
+      "subjectId": "market-research",
+      "dueDate": "2026-11-22",
+      "priority": "should",
+      "status": "pending",
+      "estimatedMinutes": 60,
+      "linkedMaterial": "S2 Problem Identification.pdf"
+    },
+    {
+      "id": "as-4",
+      "title": "Leadership Accelerator: Conflict Case Study Reflection",
+      "subjectId": "leadership",
+      "dueDate": "2026-11-25",
+      "priority": "optional",
+      "status": "pending",
+      "estimatedMinutes": 45,
+      "linkedMaterial": "Modules 1_2.pdf"
+    }
+  ],
+  "executionPlanner": {
+    "todayMustDo": [
+      {
+        "id": "ep-1",
+        "title": "Complete 20-Minute Communication Workout",
+        "timeEst": 20,
+        "completed": false,
+        "category": "Skill Development"
+      },
+      {
+        "id": "ep-2",
+        "title": "Microeconomics Cost of Production Review (Slides 1-15)",
+        "timeEst": 35,
+        "completed": false,
+        "category": "MBA Academics"
+      }
+    ],
+    "todayShouldDo": [
+      {
+        "id": "ep-3",
+        "title": "Refine Warehouse Handoff SOP Draft",
+        "timeEst": 25,
+        "completed": false,
+        "category": "Operations Lab"
+      },
+      {
+        "id": "ep-4",
+        "title": "Review 1 Thought Builder Framework",
+        "timeEst": 15,
+        "completed": true,
+        "category": "Skill Development"
+      }
+    ],
+    "todayOptional": [
+      {
+        "id": "ep-5",
+        "title": "Draft LinkedIn Post on Supply Chain Promises",
+        "timeEst": 15,
+        "completed": false,
+        "category": "LinkedIn Creation"
+      }
+    ]
+  }
+}

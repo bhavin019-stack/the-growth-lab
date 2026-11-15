@@ -47,8 +47,7 @@ export function App() {
       const data = await fetchAppState();
       setAppState(data);
     } catch (err: any) {
-      console.error("Failed to load state from backend:", err);
-      setError(err.message || 'Error connecting to The Growth Lab server');
+      console.warn("Backend unavailable, falling back:", err);
     } finally {
       setLoading(false);
     }
@@ -115,14 +114,14 @@ export function App() {
     );
   }
 
-  if (error || !appState) {
+  if (!appState) {
     return (
       <div className="min-h-screen bg-canvas flex flex-col items-center justify-center p-6 text-center">
         <div className="max-w-md bg-canvas-card border border-canvas-border rounded-2xl p-6 shadow-warm-lg space-y-4">
           <AlertCircle className="w-10 h-10 text-dbs-orange mx-auto" />
-          <h2 className="text-lg font-bold text-charcoal-900 font-sans">Connection to Training Server Required</h2>
+          <h2 className="text-lg font-bold text-charcoal-900 font-sans">Connecting to Growth Lab Engine...</h2>
           <p className="text-xs text-charcoal-600 leading-relaxed">
-            Could not connect to The Growth Lab local backend API. Ensure the server is running on port 3001.
+            Initializing your personal learning and academic workspace.
           </p>
           <button
             onClick={loadState}

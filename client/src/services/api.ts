@@ -1,11 +1,33 @@
 import { AppState, QuickCapture, SOP, ProcessMap, BrandObservation, ThoughtBuilderEntry, Assignment, ProofOfWorkProject, InterviewStory, VocabularyCard } from '../types';
+import fallbackState from '../data/fallbackState.json';
 
 const API_BASE = '/api';
+const LOCAL_STORAGE_KEY = 'the_growth_lab_state_v1';
 
 export async function fetchAppState(): Promise<AppState> {
-  const res = await fetch(`${API_BASE}/state`);
-  if (!res.ok) throw new Error('Failed to load application state');
-  return res.json();
+  try {
+    const res = await fetch(`${API_BASE}/state`);
+    if (res.ok) {
+      const data = await res.json();
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {}
+      return data;
+    }
+  } catch (err) {
+    console.warn('Backend unavailable, using cached/offline state:', err);
+  }
+
+  // Fallback to local storage if available
+  try {
+    const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (cached) {
+      return JSON.parse(cached);
+    }
+  } catch (e) {}
+
+  // Ultimate fallback to bundled seed state
+  return fallbackState as unknown as AppState;
 }
 
 export async function updateProfile(profileData: Partial<AppState['profile']>) {

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { extractDocumentText, computeFileHash } from './services/documentExtractor.js';
+import seedDatabase from './data/db.json' with { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -637,16 +638,13 @@ export function loadDatabase() {
   }
 
   // Fallback to bundled seed data if DB_FILE does not exist yet (e.g. on Vercel)
-  if (fs.existsSync(SEED_DB_FILE)) {
-    try {
-      const content = fs.readFileSync(SEED_DB_FILE, 'utf8');
-      database = JSON.parse(content);
-      syncWorkspaceMaterials();
-      saveDatabase();
-      return database;
-    } catch (err) {
-      console.error('Error loading seed db.json:', err.message);
-    }
+  try {
+    database = JSON.parse(JSON.stringify(seedDatabase));
+    syncWorkspaceMaterials();
+    saveDatabase();
+    return database;
+  } catch (err) {
+    console.error('Error loading seedDatabase:', err.message);
   }
 
   database = getInitialDatabase();
