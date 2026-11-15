@@ -5,12 +5,17 @@ import { extractDocumentText, computeFileHash } from './services/documentExtract
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.join(__dirname, 'data');
+const SEED_DB_FILE = path.join(__dirname, 'data', 'db.json');
+const DATA_DIR = process.env.VERCEL ? '/tmp/growth-lab-data' : path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'db.json');
 const WORKSPACE_DIR = path.resolve(__dirname, '..');
 
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn('Could not create DATA_DIR:', e.message);
 }
 
 // In-memory state
@@ -627,6 +632,19 @@ export function loadDatabase() {
       return database;
     } catch (err) {
       console.error('Error loading db.json, falling back to default:', err.message);
+    }
+  }
+
+  // Fallback to bundled seed data if DB_FILE does not exist yet (e.g. on Vercel)
+  if (fs.existsSync(SEED_DB_FILE)) {
+    try {
+      const content = fs.readFileSync(SEED_DB_FILE, 'utf8');
+      database = JSON.parse(content);
+      syncWorkspaceMaterials();
+      saveDatabase();
+      return database;
+    } catch (err) {
+      console.error('Error loading seed db.json:', err.message);
     }
   }
 

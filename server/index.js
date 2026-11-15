@@ -15,10 +15,14 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
+const UPLOADS_DIR = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn('Could not create UPLOADS_DIR:', e.message);
 }
 
 // Multer storage
@@ -610,8 +614,12 @@ if (fs.existsSync(CLIENT_DIST)) {
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`The Growth Lab Server running on http://localhost:${PORT}`);
-  // Perform initial scan
-  syncWorkspaceMaterials();
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`The Growth Lab Server running on http://localhost:${PORT}`);
+    // Perform initial scan
+    syncWorkspaceMaterials();
+  });
+}
+
+export default app;
